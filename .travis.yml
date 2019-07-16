@@ -5,9 +5,6 @@ rvm:
 script:
   - bundle exec rails db:migrate
   - bundle exec rspec
-branches:
-  only:
-    - master
 deploy:
   provider: heroku
   api_key:
