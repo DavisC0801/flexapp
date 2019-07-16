@@ -1,10 +1,13 @@
 language: ruby
+cache: bundler
+
 rvm:
 - 2.4.1
 
 script:
   - bundle exec rails db:migrate
   - bundle exec rspec
+
 branches:
   only:
     - master
