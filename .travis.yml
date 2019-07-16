@@ -6,3 +6,7 @@ rvm:
 script:
 - bundle exec rails db:migrate
 - bundle exec rspec
+
+branches:
+  only:
+    - master
