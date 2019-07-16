@@ -6,13 +6,3 @@ rvm:
 script:
 - bundle exec rails db:migrate
 - bundle exec rspec
-
-branches:
-  only:
-    - master
-
-deploy:
-  provider: heroku
-  api_key:
-  app: flexapp1903
-    secure: QdEkChXygMELhGJi0PdpGzgyQerc6vzn2WgCt52i73LHC0mlRotaRevySrqzLUe0Qz1PIM4xntfybNtLa6A9SkUvE9qLLouW0QGXDDpx6mr+ZpbhL0a/u61zu32iswVHzqcR1rwOUrwBBRMBixN6r8jWCSnILg7i6mwHxL+bLUO/55eHaaiPwcYEfgOdFhRWaNPkCD3ORD1GBSGoiCoG8jdUYnwfKbC7oRVknK3jXE9axa8quwi5S6y8LDzWyxAW6rFTHcBji93McEmoG+d8Wh97+stm/Yxj64Nxzvi1uJsEOoNOJT9vDSnUpapcDCOqXbkQeb9eh23JDQW501bIGZ+kKJ++bQ0PfaFZpRQ+T7XtSUJRjJOdFdcyTx5KJ/9bw4pFhcNhY41gK1Yglek14foSy9RbrTFpyR+hUpXCMI7x8n6+iCI8dUu94ahJyXbqN5r6g0YBqvlvELCFDdRza2TM1BdD4Bt5ZJXqDcn5f/dgbjRPWqiBMI0KfaiZbDVltCMGDaPBsjGitMtiUh+8ZhYzmWxqNpaxdXtg+scXFAtkb+HsmMpiqmEKoSIkq5BXHYPpT6u8XRzrC7bViqZ4c8yZxNJVdvgrnsRQM2fhKhH58VQzk/Kes4bYDVmyFscNfWfQG06mCunpe8RnPS4ScmGGorghb8Bh3+IhkBoCyRk=
