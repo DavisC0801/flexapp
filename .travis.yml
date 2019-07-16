@@ -1,0 +1,19 @@
+language: ruby
+cache: bundler
+rvm:
+- 2.4.1
+services:
+- postgresql
+before_script:
+- cp config/database.yml.travis config/database.yml
+- psql -c 'create database travis_ci_test;' -U postgres
+script:
+- bundle exec rspec
+before_install:
+- gem update --system
+- gem install bundler:2.0.2
+deploy:
+  provider: heroku
+  api_key:
+    secure: nkzv25BwXoBHj8pOqP3CNDesXWaALv1/Jxihno9ivMVF7LPSD+JtIpEC4sy8xBNxylgINROX9/yXozT4/ZARALjayi145AsH5P32aNmP8gGTjnhLEnan39E8bKvnw6+XkbtCoeSvjfX/AvH43DVzMDQURJSIP1dDV303g287z22is6cG8fow2/2UOmNaJsNsaWfSE5q7fILm8W5ndbDC88yZZu+L7pEEMlI2D9ZODrjyeqdjRegyOEwrt67Yox87jdhF/wVz8q/vRFVLj6H+VOKD7e2fnOHsm7sAx5ev9si6qzePpZd7myfRCGlVnFXhnEKoO9M73VsTSv0Y1edCkYnK++4xAapzFvd4e1qfF4m46IKmUM6sx1cfpP/QlXNBTa1pbdt5R7HVbijIAXWT2lWXanUi6Ot5d7h8XnVa0dVZ+ioKDcd5B8DdmpTeKYp4Mx8kg9PrdLw3k2i9aaRfP1lHyCyEMWOa40dWGwSza2Z4DExr0y90PYXJoIOCo0OewJTMRMS8asdzEJj30Y2uCVuQwN4JhS+IvmuunurTePuBAyorx2Ch+F4vqArT8scM1CjvXFoj34kT+UvRP5fk1Px3MliULRmF5tLGyS9GVtjd8nkHSWC4W1uM6no2hPRBqoATuwT99XVFkWz9R5s+mEYZRD6Ungg3ZMT51QtBtEs=
+  app: flexapp1903
