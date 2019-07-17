@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/register', to:'trainers#new', as: 'trainer_register'
+  post '/register', to:'trainers#create'
+  get '/dashboard', to:'users#show', as: 'dashboard'
 end

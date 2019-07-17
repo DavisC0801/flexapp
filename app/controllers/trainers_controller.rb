@@ -1,0 +1,16 @@
+class TrainersController < ApplicationController
+  def new
+  end
+
+  def create
+    user = User.create(user_info)
+    user.update(role: 1)
+    session[:user_id] = user.id
+    redirect_to dashboard_path
+  end
+
+  private
+    def user_info
+      params.require(:trainer).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+    end
+end
