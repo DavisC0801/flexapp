@@ -25,7 +25,7 @@ RSpec.describe "User login" do
   end
 
   context "as a visitor who is a client" do
-    it "can register for the app by searching a trainer's email" do
+    xit "can register for the app by searching a trainer's email" do
       trainer = User.create(first_name: "Trainer", last_name: "Mctrainerton", email: "mail@example.com", password_digest: "q", role: 1)
       visit '/register'
 
