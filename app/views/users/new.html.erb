@@ -1,6 +1,4 @@
-<%= link_to "If your trainer sent you to sign up, click Here", register_client_path %>
-
-<%= form_for :trainer do |f| %>
+<%= form_for :user do |f| %>
 
   <%= f.label :first_name, "First Name" %>
   <%= f.text_field :first_name %>
@@ -10,6 +8,9 @@
 
   <%= f.label :email %>
   <%= f.text_field :email %>
+
+  <%= f.label :trainer_email, "Trainer's Email" %>
+  <%= f.text_field :trainer_email %>
 
   <%= f.label :password %>
   <%= f.text_field :password %>
