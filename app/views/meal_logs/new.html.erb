@@ -5,7 +5,9 @@
   <%= submit_tag "Large" %>
 <% end %>
 <br>
-<%= form_for @meal_log do |f| %>
+<%= form_for facade.meal_log do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name  %><br>
   <%= f.label :meal_date %>
   <%= f.date_field :meal_date  %><br>
   <%= f.label :meal_time %>
@@ -16,6 +18,8 @@
   <%= f.number_field :meal_fats %><br>
   <%= f.label :meal_carbs %>
   <%= f.number_field :meal_carbs %><br>
+  <%= f.label :meal_protein %>
+  <%= f.number_field :meal_protein %><br>
   <%= f.label :meal_sugars %>
   <%= f.number_field :meal_sugars %><br>
   <%= f.label :meal_sodium %>
