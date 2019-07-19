@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get "/dashboard", to: "users#show"
 
   resource :meal_log, only: :new
+  resource :meal_search, only: :create
 end
