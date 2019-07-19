@@ -1,0 +1,6 @@
+<%= form_tag :meal_search, url: meal_search_path, method: :post do %>
+  <%= text_field_tag :meal_input %>
+  <%= submit_tag "Small" %>
+  <%= submit_tag "Medium" %>
+  <%= submit_tag "Large" %>
+<% end %>
