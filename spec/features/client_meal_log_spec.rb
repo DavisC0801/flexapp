@@ -10,8 +10,7 @@ describe "As a client when I visit my dashboard" do
     visit dashboard_path
     click_link("Log a Meal")
     expect(current_path).to eq(new_meal_log_path)
-    fill_in("meal[name_search]", with: "pizza")
+    fill_in("meal_input", with: "pizza")
     click_button("Large")
-    expect(current_path).to eq(new_meal_log_path)
   end
 end
