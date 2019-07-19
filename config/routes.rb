@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   get "/register", to: "users#new"
   get "/dashboard", to: "users#show"
 
-  resource :meal_log, only: :new
-  resource :meal_search, only: :create
+  resource :meal_logs, only: [:new, :create]
+  resource :meal_searches, only: :create
 end
