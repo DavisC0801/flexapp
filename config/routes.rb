@@ -7,12 +7,14 @@ Rails.application.routes.draw do
   get "login", to: "sessions#new", as: "login"
 
   get "register", to: "users#new", as: "register"
-  get "/dashboard", to: "users#show"
+  post "register", to: "users#create"
+  get '/dashboard', to: "clients#show"
 
   namespace :trainer do
     get '/dashboard', to: 'dashboard#show'
     get '/clients/:id', to: 'clients#show', as: "client"
   end
+
 
   resource :meal_logs, only: [:new, :create]
   resource :meal_searches, only: :create
