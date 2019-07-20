@@ -1,5 +1,5 @@
 class Client < ApplicationRecord
-  belongs_to :trainer
+  belongs_to :trainer, required: false
 
   validates :email, uniqueness: true, presence: true
   validates_presence_of :first_name, :last_name, :password, :phone_num
