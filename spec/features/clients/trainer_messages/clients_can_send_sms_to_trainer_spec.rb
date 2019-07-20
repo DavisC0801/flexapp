@@ -10,7 +10,7 @@ RSpec.describe 'as a registered client' do
         allow_any_instance_of(ApplicationController).to receive(:current_client).and_return(client)
 
         visit client_dashboard_path
-        save_and_open_page
+
         click_link('Send Trainer Message')
 
         expect(current_path).to eq(trainer_messages_new_path)
