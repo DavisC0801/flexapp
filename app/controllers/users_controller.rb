@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   end
 
   def new
+    trainer = Trainer.find(params[:trainer])
+    @trainer_email = trainer.email
   end
 
   def create

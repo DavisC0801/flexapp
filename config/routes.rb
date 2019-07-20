@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   get "/about", to: 'welcome#show', as: "about"
   get "logout", to: "sessions#destroy", as: "logout"
   get "login", to: "sessions#new", as: "login"
-  get "register", to: "users#new", as: "register"
+  get "register/:trainer", to: "users#new", as: 'register_through_trainer'
+  get "register", to: "users#new"
   post "register", to: "users#create"
+  post "register/:trainer", to: "users#create"
   get '/dashboard', to: "clients#show"
 
   get '/trainer/dashboard', to: 'trainers#show'

@@ -1,4 +1,4 @@
-<%= form_for :user do |f| %>
+3<%= form_for :user do |f| %>
 
   <%= f.label :first_name, "First Name" %>
   <%= f.text_field :first_name %>
@@ -8,16 +8,19 @@
 
   <%= f.label :email %>
   <%= f.text_field :email %>
-  
+
   <%= f.label :password %>
   <%= f.text_field :password %>
 
   <%= f.label :password_confirmation, "Confirm your Password" %>
   <%= f.text_field :password_confirmation %>
-
-  <%= f.label :trainer_email, "Trainer's Email(optional)" %>
-  <%= f.text_field :trainer_email %>
-
+  <% if @trainer_email %>
+    <%= f.label :trainer_email %>
+    <%= f.text_field :trainer_email, value: @trainer_email %>
+  <% else %>
+    <%= f.label :trainer_email, "Trainer's Email(optional)" %>
+    <%= f.text_field :trainer_email %>
+  <% end %>
   <%= f.submit "Create Account as a Trainer", name: 'Trainer'%>
   <%= f.submit "Register with a Trainer", name: 'Client'%>
 <% end %>
