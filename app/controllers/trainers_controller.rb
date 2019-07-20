@@ -1,5 +1,5 @@
 class TrainersController < ApplicationController
   def show
-    @trainer = current_user
+    @trainer = current_trainer
   end
 end

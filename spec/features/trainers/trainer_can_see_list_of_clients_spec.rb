@@ -9,7 +9,7 @@ feature 'trainer can see list of clients' do
   end
 
   it 'user logs in and sees list of clients' do
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@trainer)
+    allow_any_instance_of(ApplicationController).to receive(:current_trainer).and_return(@trainer)
 
     visit '/trainer/dashboard'
     expect(current_path).to eq('/trainer/dashboard')
