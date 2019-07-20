@@ -24,5 +24,25 @@ RSpec.describe "User login" do
   end
 
   context "as a visitor who is a client" do
+    it "can register with an email, password, and trainer's email" do
+      trainer = create(:trainer)
+      visit '/register'
+  
+      fill_in "First Name", with: "client"
+      fill_in "Last Name", with: "McClienton"
+      fill_in "Email", with: "mail@example.com"
+      fill_in "Password", with: "password"
+      fill_in "Confirm your Password", with: "password"
+      fill_in "Trainer's Email(optional)", with: "#{trainer.email}"
+
+      click_on "Register with a Trainer"
+
+      expect(current_path).to eq('/dashboard')
+
+      client = Client.last
+
+      expect(client.email).to eq('mail@example.com')
+      expect(client.trainer).to eq(trainer)
+    end
   end
 end

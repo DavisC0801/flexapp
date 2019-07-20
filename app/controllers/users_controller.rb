@@ -10,6 +10,12 @@ class UsersController < ApplicationController
       trainer = Trainer.create(trainer_info)
       session[:trainer_id] = trainer.id
       redirect_to trainer_dashboard_path
+    elsif params['Client']
+      client = Client.create(client_info)
+      trainer = Trainer.find_by(params[:trainer_email])
+      trainer.clients << client
+      session[:client_id] = client.id
+      redirect_to dashboard_path
     end
   end
 

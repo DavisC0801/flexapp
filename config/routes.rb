@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "login", to: "sessions#new", as: "login"
   get "register", to: "users#new", as: "register"
   post "register", to: "users#create"
+  get '/dashboard', to: "clients#show"
 
   get '/trainer/dashboard', to: 'trainers#show'
 end
