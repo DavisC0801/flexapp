@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   get '/dashboard', to: "clients#show"
 
   get '/trainer/dashboard', to: 'trainers#show'
+  get '/trainer/invite', to: 'invite#new'
+  post '/trainer/invite', to: 'invite#create'
 end
