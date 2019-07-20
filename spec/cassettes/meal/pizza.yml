@@ -1,0 +1,40 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://thawing-lowlands-89167.herokuapp.com/food_info/pizza/?size=large
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Server:
+      - gunicorn/19.9.0
+      Date:
+      - Sat, 20 Jul 2019 00:01:36 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '172'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"calories":284,"carbs":35,"fats":10,"meal":"pizza","protein":12,"size":"large","sodium":639,"sugars":7,"thumbnail":"https://d2xdmhkmkbyw75.cloudfront.net/1060_thumb.jpg"}
+
+'
+    http_version: 
+  recorded_at: Sat, 20 Jul 2019 00:01:35 GMT
+recorded_with: VCR 5.0.0

@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_19_235120) do
+ActiveRecord::Schema.define(version: 2019_07_19_012913) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "meal_logs", force: :cascade do |t|
+    t.string "name"
+    t.date "meal_date"
+    t.time "meal_time"
+    t.integer "meal_calories"
+    t.integer "meal_fats"
+    t.integer "meal_carbs"
+    t.integer "meal_sugars"
+    t.integer "meal_protein"
+    t.integer "meal_sodium"
+  end
 
   create_table "clients", force: :cascade do |t|
     t.bigint "trainer_id"
