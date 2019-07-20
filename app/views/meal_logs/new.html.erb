@@ -1,0 +1,28 @@
+<%= form_tag :meal_searches, url: meal_searches_path, method: :post do %>
+  <%= text_field_tag :meal_input %><br>
+  <%= submit_tag "Small" %>
+  <%= submit_tag "Medium" %>
+  <%= submit_tag "Large" %>
+<% end %>
+<br>
+<%= form_for facade.meal_log do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name  %><br>
+  <%= f.label :meal_date %>
+  <%= f.date_field :meal_date  %><br>
+  <%= f.label :meal_time %>
+  <%= f.time_field :meal_time %><br>
+  <%= f.label :meal_calories %>
+  <%= f.number_field :meal_calories %><br>
+  <%= f.label :meal_fats %>
+  <%= f.number_field :meal_fats %><br>
+  <%= f.label :meal_carbs %>
+  <%= f.number_field :meal_carbs %><br>
+  <%= f.label :meal_protein %>
+  <%= f.number_field :meal_protein %><br>
+  <%= f.label :meal_sugars %>
+  <%= f.number_field :meal_sugars %><br>
+  <%= f.label :meal_sodium %>
+  <%= f.number_field :meal_sodium %><br>
+  <%= f.submit "Log Meal" %>
+<% end %>
