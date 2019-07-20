@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  get '/register/client', to:'users#new'
-  post '/register/client', to:'users#create'
-  get '/register', to:'trainers#new', as: 'trainer_register'
-  post '/register', to:'trainers#create'
-  get '/dashboard', to:'users#show', as: 'dashboard'
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: 'welcome#index'
+  get "/about", to: 'welcome#show', as: "about"
+  get "logout", to: "sessions#destroy", as: "logout"
+  get "login", to: "sessions#new", as: "login"
+  get "register", to: "users#new", as: "register"
+  post "register", to: "users#create"
+
+  get '/trainer/dashboard', to: 'trainers#show'
 end

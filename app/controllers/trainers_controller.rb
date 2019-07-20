@@ -1,4 +1,5 @@
 class TrainersController < ApplicationController
+
   def new
   end
 
@@ -7,6 +8,10 @@ class TrainersController < ApplicationController
     user.update(role: 1)
     session[:user_id] = user.id
     redirect_to dashboard_path
+  end
+
+  def show
+    @trainer = current_trainer
   end
 
   private

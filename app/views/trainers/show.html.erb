@@ -1,0 +1,8 @@
+<div id="clients">
+  <% @trainer.clients.each do |client| %>
+    <div class="client-<%= client.id %>">
+      <%= client.first_name %> <%= client.last_name %><br>
+      <%= link_to client.email, client.email %>
+    </div><br>
+  <% end %>
+</div>
