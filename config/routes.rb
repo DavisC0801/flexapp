@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   get "logout", to: "sessions#destroy", as: "logout"
   get "login", to: "sessions#new", as: "login"
   get "register", to: "users#new", as: "register"
+
+  get '/trainer/dashboard', to: 'trainers#show'
 end
