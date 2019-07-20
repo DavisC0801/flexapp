@@ -3,19 +3,21 @@ require 'rails_helper'
 RSpec.describe 'as a registered client' do
   describe 'the dashboard' do
 
-    it "has a section for sending sms messages to trainer if trainer is assigned" do
-      trainer = create(:trainer)
-      client = create(:client, trainer: trainer)
-      allow_any_instance_of(ApplicationController).to receive(:current_client).and_return(client)
+    it "can send sms messages to trainer if trainer is assigned" do
+      VCR.use_cassette("message/create") do
+        trainer = create(:trainer, phone_num: '3034351644')
+        client = create(:client, trainer: trainer)
+        allow_any_instance_of(ApplicationController).to receive(:current_client).and_return(client)
 
-      visit client_dashboard_path
+        visit client_dashboard_path
+        save_and_open_page
+        click_link('Send Trainer Message')
 
-      click_link('Send Trainer Message')
+        expect(current_path).to eq(trainer_messages_new_path)
 
-      expect(current_path).to eq(trainer_messages_new_path)
-
-      expect(page).to have_field("Message")
-      expect(page).to have_link('Send Message')
+        fill_in "Message", with: "HI TRAINER!"
+        click_button 'Send Message'
+      end
     end
 
     it "doesn't have a section for sending sms messages to trainer if trainer is not assigned" do

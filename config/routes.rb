@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   resource :meal_logs, only: [:new, :create]
   resource :meal_searches, only: :create
 
-  get '/trainer_messages/new', to: 'clients/trainer_messages#create'
+  get '/trainer_messages/new', to: 'clients/trainer_messages#new'
+  post '/trainer_messages/create', to: 'clients/trainer_messages#create'
 end
