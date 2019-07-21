@@ -1,0 +1,11 @@
+<h1>Log Your Weight!</h1>
+<% @log.errors.full_messages.each do |msg| %>
+  <div class="alert alert-warning" role="alert">
+    <%= msg %>
+  </div>
+<% end %>
+<%= form_for @log do |f| %>
+  <%= f.label :weight %>
+  <%= f.number_field :weight %>
+  <%= f.submit "Log Weight" %>
+<% end %>
