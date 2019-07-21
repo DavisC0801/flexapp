@@ -17,6 +17,9 @@ RSpec.describe 'as a registered client' do
 
         fill_in "Message", with: "HI TRAINER!"
         click_button 'Send Message'
+
+        expect(current_path).to eq(client_dashboard_path)
+        expect(page).to have_content('Successfully Sent Message')
       end
     end
 
