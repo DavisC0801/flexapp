@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   helper_method :current_trainer, :current_client
-  
+
   def current_trainer
     @current_trainer ||= Trainer.find(session[:trainer_id]) if session[:trainer_id]
   end
