@@ -23,18 +23,18 @@ http_interactions:
       Server:
       - gunicorn/19.9.0
       Date:
-      - Sat, 20 Jul 2019 00:01:36 GMT
+      - Sun, 21 Jul 2019 19:23:16 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '172'
+      - '173'
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"calories":284,"carbs":35,"fats":10,"meal":"pizza","protein":12,"size":"large","sodium":639,"sugars":7,"thumbnail":"https://d2xdmhkmkbyw75.cloudfront.net/1060_thumb.jpg"}
+      string: '{"calories":569,"carbs":71,"fats":20,"meal":"pizza","protein":24,"size":"large","sodium":1279,"sugars":7,"thumbnail":"https://d2xdmhkmkbyw75.cloudfront.net/1060_thumb.jpg"}
 
 '
     http_version: 
-  recorded_at: Sat, 20 Jul 2019 00:01:35 GMT
+  recorded_at: Sun, 21 Jul 2019 19:23:16 GMT
 recorded_with: VCR 5.0.0

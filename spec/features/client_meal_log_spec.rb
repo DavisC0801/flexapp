@@ -2,13 +2,13 @@ require "rails_helper"
 
 describe "As a client when I visit my dashboard" do
   it "shows a link labeled Log a Meal" do
-    visit dashboard_path
+    visit client_dashboard_path
     expect(page).to have_link "Log a Meal"
   end
 
   it "It links to a place to enter a meal name and portion size" do
     VCR.use_cassette("meal/pizza") do
-      visit dashboard_path
+      visit client_dashboard_path
       click_link("Log a Meal")
       expect(current_path).to eq(new_meal_logs_path)
       fill_in("meal_input", with: "pizza")
@@ -27,12 +27,12 @@ describe "As a client when I visit my dashboard" do
 
       test_log = MealLog.last
       expect(test_log.name).to eq("pizza")
-      expect(test_log.meal_calories).to eq(284)
-      expect(test_log.meal_fats).to eq(10)
-      expect(test_log.meal_carbs).to eq(35)
+      expect(test_log.meal_calories).to eq(569)
+      expect(test_log.meal_fats).to eq(20)
+      expect(test_log.meal_carbs).to eq(71)
       expect(test_log.meal_sugars).to eq(7)
-      expect(test_log.meal_protein).to eq(12)
-      expect(test_log.meal_sodium).to eq(639)
+      expect(test_log.meal_protein).to eq(24)
+      expect(test_log.meal_sodium).to eq(1279)
     end
   end
 

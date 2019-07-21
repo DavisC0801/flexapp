@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       trainer = Trainer.find_by(params[:trainer_email])
       trainer.clients << client
       session[:client_id] = client.id
-      redirect_to dashboard_path
+      redirect_to client_dashboard_path
     end
   end
 
