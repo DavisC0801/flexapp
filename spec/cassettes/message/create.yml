@@ -25,7 +25,7 @@ http_interactions:
       message: CREATED
     headers:
       Date:
-      - Sat, 20 Jul 2019 22:48:00 GMT
+      - Sun, 21 Jul 2019 02:07:14 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -35,9 +35,9 @@ http_interactions:
       Twilio-Concurrent-Requests:
       - '1'
       Twilio-Request-Id:
-      - RQ730e344e0a304a9fade3703bd20c1a4e
+      - RQ53f178cdc599406c938381047ac03faa
       Twilio-Request-Duration:
-      - '0.088'
+      - '0.102'
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Headers:
@@ -61,15 +61,15 @@ http_interactions:
       - max-age=31536000
     body:
       encoding: UTF-8
-      string: '{"sid": "SMbc1da3e3694942cbb2b4f32ad6b82522", "date_created": "Sat,
-        20 Jul 2019 22:48:00 +0000", "date_updated": "Sat, 20 Jul 2019 22:48:00 +0000",
+      string: '{"sid": "SM8e017fa9f6584cd387768ded24a6d417", "date_created": "Sun,
+        21 Jul 2019 02:07:14 +0000", "date_updated": "Sun, 21 Jul 2019 02:07:14 +0000",
         "date_sent": null, "account_sid": "AC785d3210b01bda0135186747f0f7421b", "to":
         "+13034351644", "from": "+17205751348", "messaging_service_sid": null, "body":
         "Sent from your Twilio trial account - HI TRAINER!", "status": "queued", "num_segments":
         "1", "num_media": "0", "direction": "outbound-api", "api_version": "2010-04-01",
         "price": null, "price_unit": "USD", "error_code": null, "error_message": null,
-        "uri": "/2010-04-01/Accounts/AC785d3210b01bda0135186747f0f7421b/Messages/SMbc1da3e3694942cbb2b4f32ad6b82522.json",
-        "subresource_uris": {"media": "/2010-04-01/Accounts/AC785d3210b01bda0135186747f0f7421b/Messages/SMbc1da3e3694942cbb2b4f32ad6b82522/Media.json"}}'
+        "uri": "/2010-04-01/Accounts/AC785d3210b01bda0135186747f0f7421b/Messages/SM8e017fa9f6584cd387768ded24a6d417.json",
+        "subresource_uris": {"media": "/2010-04-01/Accounts/AC785d3210b01bda0135186747f0f7421b/Messages/SM8e017fa9f6584cd387768ded24a6d417/Media.json"}}'
     http_version: 
-  recorded_at: Sat, 20 Jul 2019 22:48:00 GMT
+  recorded_at: Sun, 21 Jul 2019 02:07:14 GMT
 recorded_with: VCR 5.0.0
