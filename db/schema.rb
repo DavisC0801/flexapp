@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2019_07_21_203737) do
   end
 
   create_table "weight_logs", force: :cascade do |t|
-    t.decimal "weight"
+    t.integer "weight"
     t.bigint "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
