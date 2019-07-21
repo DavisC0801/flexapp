@@ -17,6 +17,13 @@ RSpec.describe "As a registered client" do
         expect(page).to have_link('Log Weight')
       end
 
+      it "doesn't prompt for a weigh if log is current" do
+        log1 = @client.weight_logs.create(weight: 123)
+
+        visit client_dashboard_path
+        expect(page).to_not have_content("It has been over a week since you've logged your weight")
+        expect(page).to have_link('Log Weight')
+      end
     end
   end
 end
