@@ -14,4 +14,10 @@ class SessionsController < ApplicationController
       end
     end
   end
+
+  def destroy
+    session[:client_id] = nil
+    session[:trainer_id] = nil
+    redirect_to '/'
+  end
 end

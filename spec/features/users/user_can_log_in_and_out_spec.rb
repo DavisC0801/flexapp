@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "sessions spec" do
   context 'as a client' do
-    it "can log in" do
+    it "can log in and out" do
       client = create(:client)
 
       visit '/'
@@ -13,6 +13,19 @@ RSpec.describe "sessions spec" do
       click_on 'Log In'
 
       expect(page).to have_current_path(client_dashboard_path)
+      expect(page).to have_link("Logout")
+      expect(page).to have_link("Profile")
+
+      visit '/register'
+
+      expect(page).to have_link("Profile")
+      click_link("Logout")
+
+      expect(current_path).to eq('/')
+
+      visit client_dashboard_path
+
+      expect(page).to have_content("The page you were looking for doesn't exist")
     end
   end
 
