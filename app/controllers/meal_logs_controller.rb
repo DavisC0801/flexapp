@@ -11,7 +11,6 @@ class MealLogsController < ApplicationController
     if meal.save
       redirect_to dashboard_path
     else
-      flash.now[:danger] = meal.errors.full_messages
       redirect_to new_meal_logs_path
     end
   end
