@@ -1,3 +1,11 @@
-<%= link_to "Login", login_path %>
+<%= form_tag login_path, url: {action: 'create'} do %>
+  <%= label_tag :email %>
+  <%= text_field_tag :email %>
+
+  <%= label_tag :password %>
+  <%= text_field_tag :password %>
+
+  <%= submit_tag 'Log In' %>
+<% end %>
 <%= link_to "Register", register_path %>
 <%= link_to "About Us", about_path %>
