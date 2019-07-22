@@ -1,3 +1,5 @@
+<p><%= link_to "Invite a new client to signup", trainer_invite_path %></p>
+
 <div id="clients">
   <% @trainer.clients.each do |client| %>
     <div class="client-<%= client.id %>">

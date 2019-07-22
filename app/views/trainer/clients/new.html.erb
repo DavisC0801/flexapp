@@ -1,4 +1,4 @@
-<%= form_for :user do |f| %>
+<%= form_for :client do |f| %>
 
   <%= f.label :first_name, "First Name" %>
   <%= f.text_field :first_name %>
@@ -15,9 +15,8 @@
   <%= f.label :password_confirmation, "Confirm your Password" %>
   <%= f.text_field :password_confirmation %>
 
-  <%= f.label :trainer_email, "Trainer's Email(optional)" %>
-  <%= f.text_field :trainer_email %>
+  <%= f.label :trainer_email, "Trainer's Email" %>
+  <%= f.text_field :trainer_email, value: @trainer.email %>
 
-  <%= f.submit "Create Account as a Trainer", name: 'Trainer'%>
-  <%= f.submit "Register with a Trainer", name: 'Client'%>
+  <%= f.submit "Register" %>
 <% end %>
