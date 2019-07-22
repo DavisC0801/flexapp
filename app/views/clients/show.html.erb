@@ -1,5 +1,7 @@
 <%= link_to "Log a Meal", new_meal_logs_path %>
 
-<% if current_client && current_client.trainer %>
+<% if current_client && current_client.trainer && current_client.trainer.phone_num %>
   <%= link_to "Send Trainer Message", trainer_messages_new_path %>
 <% end %>
+
+<%= link_to "Log Weight", weight_logs_new_path %>
