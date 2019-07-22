@@ -12,5 +12,6 @@ RSpec.describe Client, type: :model do
 
   describe 'validations' do
     it { should have_many :weight_logs }
+    it { should have_many :meal_plans }
   end
 end

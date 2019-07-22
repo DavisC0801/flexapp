@@ -4,7 +4,7 @@ class CreateMealPlans < ActiveRecord::Migration[5.2]
       t.integer :calories
       t.boolean :vegetarian, :default => false
       t.boolean :vegan, :default => false
-      t.string :diet_type
+      t.string :diet_type, :default => 'balanced'
       t.string :excluded
       t.references :client, foreign_key: true
 
