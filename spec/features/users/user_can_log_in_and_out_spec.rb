@@ -30,7 +30,7 @@ RSpec.describe "sessions spec" do
   end
 
   context "as a trainer" do
-    it "can log in" do
+    it "can log in and out" do
       trainer = create(:trainer)
 
       visit '/'
@@ -41,6 +41,19 @@ RSpec.describe "sessions spec" do
       click_on 'Log In'
 
       expect(page).to have_current_path(trainer_dashboard_path)
+      expect(page).to have_link("Logout")
+      expect(page).to have_link("Profile")
+
+      visit '/register'
+
+      expect(page).to have_link("Profile")
+      click_link("Logout")
+
+      expect(current_path).to eq('/')
+
+      visit trainer_dashboard_path
+
+      expect(page).to have_content("The page you were looking for doesn't exist")
     end
   end
 end
