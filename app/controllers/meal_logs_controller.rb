@@ -9,7 +9,7 @@ class MealLogsController < ApplicationController
     #todo - Update to scope to current_user
     meal = MealLog.new(meal_log_params)
     if meal.save
-      redirect_to dashboard_path
+      redirect_to client_dashboard_path
     else
       redirect_to new_meal_logs_path
     end

@@ -10,11 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_19_012913) do
-
+ActiveRecord::Schema.define(version: 2019_07_21_203737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "clients", force: :cascade do |t|
+    t.bigint "trainer_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "phone_num"
+    t.string "password_digest"
+    t.index ["trainer_id"], name: "index_clients_on_trainer_id"
+  end
 
   create_table "meal_logs", force: :cascade do |t|
     t.string "name"
@@ -28,16 +37,6 @@ ActiveRecord::Schema.define(version: 2019_07_19_012913) do
     t.integer "meal_sodium"
   end
 
-  create_table "clients", force: :cascade do |t|
-    t.bigint "trainer_id"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
-    t.string "phone_num"
-    t.string "password_digest"
-    t.index ["trainer_id"], name: "index_clients_on_trainer_id"
-  end
-
   create_table "trainers", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -46,5 +45,14 @@ ActiveRecord::Schema.define(version: 2019_07_19_012913) do
     t.string "password_digest"
   end
 
+  create_table "weight_logs", force: :cascade do |t|
+    t.integer "weight"
+    t.bigint "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_weight_logs_on_client_id"
+  end
+
   add_foreign_key "clients", "trainers"
+  add_foreign_key "weight_logs", "clients"
 end
