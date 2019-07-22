@@ -25,17 +25,17 @@ RSpec.describe "email invitation" do
       trainer = create(:trainer)
       trainer2 = create(:trainer)
 
-      visit register_through_trainer_path(trainer)
-      
+      visit trainer_register_path(trainer)
+
       fill_in "First Name", with: "Trainer"
       fill_in "Last Name", with: "Mctrainerton"
       fill_in "Email", with: "mail@example.com"
       fill_in "Password", with: "password"
       fill_in "Confirm your Password", with: "password"
 
-      click_on "Register with a Trainer"
+      click_on "Register"
 
-      expect(current_path).to eq('/dashboard')
+      expect(current_path).to eq('/client/dashboard')
 
       client = Client.last
 
