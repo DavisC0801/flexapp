@@ -3,7 +3,7 @@
 <div id="clients">
   <% @trainer.clients.each do |client| %>
     <div class="client-<%= client.id %>">
-      <%= client.first_name %> <%= client.last_name %><br>
+      <%= button_to "#{client.first_name} #{client.last_name}", trainer_client_path(client.id), method: :get %>
       <%= link_to client.email, client.email %>
     </div><br>
   <% end %>

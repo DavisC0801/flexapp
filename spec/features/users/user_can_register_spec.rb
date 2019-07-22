@@ -27,7 +27,7 @@ RSpec.describe "User login" do
     it "can register with an email, password, and trainer's email" do
       trainer = create(:trainer)
       visit '/register'
-  
+
       fill_in "First Name", with: "client"
       fill_in "Last Name", with: "McClienton"
       fill_in "Email", with: "mail@example.com"
@@ -37,7 +37,7 @@ RSpec.describe "User login" do
 
       click_on "Register with a Trainer"
 
-      expect(current_path).to eq('/dashboard')
+      expect(current_path).to eq(client_dashboard_path)
 
       client = Client.last
 

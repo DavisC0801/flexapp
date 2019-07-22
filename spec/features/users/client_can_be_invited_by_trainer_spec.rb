@@ -26,7 +26,7 @@ RSpec.describe "email invitation" do
       trainer2 = create(:trainer)
 
       visit register_through_trainer_path(trainer)
- 
+      
       fill_in "First Name", with: "Trainer"
       fill_in "Last Name", with: "Mctrainerton"
       fill_in "Email", with: "mail@example.com"

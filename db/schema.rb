@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(version: 2019_07_19_235120) do
     t.index ["trainer_id"], name: "index_clients_on_trainer_id"
   end
 
+  create_table "meal_logs", force: :cascade do |t|
+    t.string "name"
+    t.date "meal_date"
+    t.time "meal_time"
+    t.integer "meal_calories"
+    t.integer "meal_fats"
+    t.integer "meal_carbs"
+    t.integer "meal_sugars"
+    t.integer "meal_protein"
+    t.integer "meal_sodium"
+  end
+
   create_table "trainers", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
