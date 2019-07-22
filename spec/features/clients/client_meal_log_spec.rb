@@ -14,7 +14,6 @@ describe "As a client when I visit my dashboard" do
       fill_in("meal_input", with: "pizza")
       click_button("Large")
       expect(current_path).to eq(new_meal_logs_path)
-      # expect(page).to have_css("value=284")
     end
   end
 
@@ -64,5 +63,16 @@ describe "As a client when I visit my dashboard" do
     test_log = MealLog.last
     expect(current_path).to eq(new_meal_logs_path)
     expect(test_log).to be nil
+  end
+
+  it "will search for meals with spaces in the name" do
+    VCR.use_cassette("meal/pizzabagel") do
+      visit client_dashboard_path
+      click_link("Log a Meal")
+      expect(current_path).to eq(new_meal_logs_path)
+      fill_in("meal_input", with: "pizza bagels")
+      click_button("Large")
+      expect(current_path).to eq(new_meal_logs_path)
+    end
   end
 end

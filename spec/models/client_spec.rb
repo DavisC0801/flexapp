@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Client, type: :model do
-  
+
   describe "validations" do
     it { should validate_presence_of :email }
     it { should validate_uniqueness_of :email }
@@ -10,4 +10,7 @@ RSpec.describe Client, type: :model do
     it { should validate_presence_of :password }
   end
 
+  describe 'validations' do
+    it { should have_many :weight_logs }
+  end
 end
