@@ -1,6 +1,6 @@
 class FoodSearchService
   def initialize(search_terms)
-    @food = search_terms[:meal_name].downcase
+    @food = search_terms[:meal_name].downcase.sub(" ", "%20")
     @size = search_terms[:size].downcase
   end
 

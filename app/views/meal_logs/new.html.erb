@@ -5,6 +5,13 @@
   <%= submit_tag "Large" %>
 <% end %>
 <br>
+
+<% facade.meal_log.errors.full_messages.each do |msg| %>
+  <div class="alert alert-warning" role="alert">
+    <%= msg %>
+  </div>
+<% end %>
+
 <%= form_for facade.meal_log do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name  %><br>
