@@ -1,3 +1,22 @@
 // Place all the styles related to the WelcomeController controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.welcome {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-xl {
+  width: 70%;
+  height: 20%;
+  margin-top: 10%;
+  font-size: 60pt;
+  text-align: center;
+  background-color: #4ABDAC;
+  color: #DFDCE3
+}
+
+#first-welcome{
+  margin-top: 110%;
+}

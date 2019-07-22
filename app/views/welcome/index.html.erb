@@ -1,3 +1,13 @@
-<%= link_to "Login", login_path %>
-<%= link_to "Register", register_path %>
-<%= link_to "About Us", about_path %>
+<div class="container">
+  <div class="col">
+    <div class="row">
+      <%= link_to "Login", login_path, class: "welcome btn-primary btn-xl", id: "first-welcome" %><br>
+    </div>
+    <div class="row">
+      <%= link_to "Register", register_path, class: "welcome btn-primary btn-xl" %><br>
+    </div>
+    <div class="row">
+      <%= link_to "About Us", about_path, class: "welcome btn-primary btn-xl" %>
+    </div>
+  </div>
+</div>
