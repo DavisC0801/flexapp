@@ -26,3 +26,8 @@ body {
 .centered{
   text-align: center;
 }
+
+.navbar-header{
+  font-size: 28pt;
+  font-weight: bold;
+}

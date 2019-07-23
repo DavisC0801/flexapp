@@ -10,22 +10,36 @@
   </head>
 
   <body>
-  <div class="flash-message">
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, class: "#{name} alert alert-dark"%>
-    <% end %>
-  </div>
-  <section class="nav-bar">
-    <% if current_user %>
-      <%= link_to "Logout", logout_path %>
-      <% if current_client %>
-        <%= link_to "Profile", client_dashboard_path %>
-      <% elsif current_trainer %>
-        <%= link_to "Profile", trainer_dashboard_path %>
+    <div class="flash-message">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: "#{name} alert alert-dark"%>
       <% end %>
+    </div>
+
+    <% if !@hide_nav %>
+      <section class="navbar navbar-expand-md navbar-dark bg-dark">
+        <span class="navbar-brand mr-auto navbar-header">CalorieCoach</span>
+        <ul class="navbar-nav">
+          <% if current_user %>
+          <li class="nav-item">
+            <%= link_to "Logout", logout_path, class: "nav-link" %>
+          </li>
+          <% end %>
+          <% if current_client %>
+          <li class="nav-item">
+            <%= link_to "Profile", client_dashboard_path, class: "nav-link" %>
+          </li>
+          <% elsif current_trainer %>
+          <li class="nav-item">
+            <%= link_to "Profile", trainer_dashboard_path, class: "nav-link" %>
+          </li>
+          <% end %>
+      </section>
+      <br>
     <% end %>
-  </section>
+
     <%= yield %>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
