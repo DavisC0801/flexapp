@@ -1,23 +1,67 @@
-<%= form_for :user do |f| %>
-
-  <%= f.label :first_name, "First Name" %>
-  <%= f.text_field :first_name %>
-
-  <%= f.label :last_name, "Last Name" %>
-  <%= f.text_field :last_name %>
-
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-
-  <%= f.label :password %>
-  <%= f.text_field :password %>
-
-  <%= f.label :password_confirmation, "Confirm your Password" %>
-  <%= f.text_field :password_confirmation %>
-
-  <%= f.label :trainer_email, "Trainer's Email(optional)" %>
-  <%= f.text_field :trainer_email %>
-
-  <%= f.submit "Create Account as a Trainer", name: 'Trainer'%>
-  <%= f.submit "Register with a Trainer", name: 'Client'%>
-<% end %>
+<div class="register-heading">
+  Enter Your Information
+</div>
+<br>
+<div class="container">
+  <div class="col">
+    <%= form_for :user do |f| %>
+      <div class="row">
+        <div class="col">
+          <%= f.label :first_name, "First Name" %>
+        </div>
+        <div class="col">
+          <%= f.text_field :first_name %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <%= f.label :last_name, "Last Name" %>
+        </div>
+        <div class="col">
+          <%= f.text_field :last_name %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <%= f.label :email %>
+        </div>
+        <div class="col">
+          <%= f.text_field :email %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <%= f.label :password %>
+        </div>
+        <div class="col">
+          <%= f.text_field :password %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <%= f.label :password_confirmation, "Confirm your Password" %>
+        </div>
+        <div class="col">
+          <%= f.text_field :password_confirmation %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <%= f.label :trainer_email, "Trainer's Email(optional)" %>
+        </div>
+        <div class="col">
+          <%= f.text_field :trainer_email %>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <%= f.submit "Create Account as a Trainer", name: 'Trainer', class: "btn-primary" %>
+        </div>
+        <div class="col">
+          <%= f.submit "Register with a Trainer", name: 'Client', class: "btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
