@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   get "register", to: "users#new", as: "register"
 
   get "/client/dashboard", to: "clients#show"
-  # get '/trainer/dashboard', to: 'trainers#show'# ?
+
   post "register", to: "users#create"
+  post '/login', to: 'sessions#create'
 
   namespace :trainer do
     get '/invite', to: 'invite#new'
@@ -29,6 +30,9 @@ Rails.application.routes.draw do
 
   get '/trainer_messages/new', to: 'clients/trainer_messages#new'
   post '/trainer_messages/create', to: 'clients/trainer_messages#create'
+
+  get 'trainer/client_messages/new', to: 'trainer/client_messages#new'
+  post 'trainer/client_messages/create', to: 'trainer/client_messages#create'
 
   get '/weight_logs/new', to: 'clients/weight_logs#new'
   post '/weight_logs/create', to: 'clients/weight_logs#create', as: 'weight_logs'

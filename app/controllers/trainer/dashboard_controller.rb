@@ -1,4 +1,4 @@
-class Trainer::DashboardController < ApplicationController
+class Trainer::DashboardController < Trainer::BaseController
   def show
     @trainer = current_trainer
   end
