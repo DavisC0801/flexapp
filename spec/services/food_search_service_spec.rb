@@ -26,20 +26,21 @@ RSpec.describe FoodSearchService do
   end
 
   it "can look up recipes" do
-    meal_plan = create(:meal_plan)
+    VCR.use_cassette("recipe/vegetarian") do
+      meal_plan = create(:meal_plan)
 
-    recipe_data = @service.recipe_lookup(meal_plan)
+      recipe_data = @service.recipe_lookup(meal_plan)
 
-    expect(recipe_data[:params][:calorie_max]).to eq('200')
-    expect(recipe_data[:params][:diet]).to eq('balanced')
-    expect(recipe_data[:params][:restriction]).to eq('vegetarian')
-    expect(recipe_data[:recipes].count).to eq(100)
-    expect(recipe_data[:recipes].first).to have_key(:calories_per_serving)
-    expect(recipe_data[:recipes].first).to have_key(:carbs_per_serving)
-    expect(recipe_data[:recipes].first).to have_key(:protein_per_serving)
-    expect(recipe_data[:recipes].first).to have_key(:servings)
-    expect(recipe_data[:recipes].first).to have_key(:thumbnail)
-    expect(recipe_data[:recipes].first).to have_key(:url)
-
+      expect(recipe_data[:params][:calorie_max]).to eq('200')
+      expect(recipe_data[:params][:diet]).to eq('balanced')
+      expect(recipe_data[:params][:restriction]).to eq('vegetarian')
+      expect(recipe_data[:recipes].count).to eq(100)
+      expect(recipe_data[:recipes].first).to have_key(:calories_per_serving)
+      expect(recipe_data[:recipes].first).to have_key(:carbs_per_serving)
+      expect(recipe_data[:recipes].first).to have_key(:protein_per_serving)
+      expect(recipe_data[:recipes].first).to have_key(:servings)
+      expect(recipe_data[:recipes].first).to have_key(:thumbnail)
+      expect(recipe_data[:recipes].first).to have_key(:url)
+    end
   end
 end
