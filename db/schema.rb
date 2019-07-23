@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2019_07_22_222038) do
     t.integer "calories"
     t.boolean "vegetarian", default: false
     t.boolean "vegan", default: false
-    t.string "diet_type"
+    t.string "diet_type", default: "balanced"
     t.string "excluded"
     t.bigint "client_id"
     t.datetime "created_at", null: false
