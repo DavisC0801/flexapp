@@ -36,7 +36,32 @@ RSpec.describe "As a registered Trainer" do
       expect(meal_plan.diet_type).to eq('low-carb')
     end
 
-    it "defaults to vegetarian if both vegetarian and vegan are chosen" do
+    it "allows me to edit a clients meal plan" do
+      @client2.create_meal_plan(calories: 180, vegan: true)
+
+      visit trainer_dashboard_path
+
+      click_button "#{@client2.first_name} #{@client2.last_name}"
+
+      click_button "Change Client's Meal Plan"
+
+      fill_in 'meal_plan[calories]', with: '400'
+      fill_in 'meal_plan[excluded]', with: ''
+      find(:css, '#meal_plan_vegetarian_true').click
+      find(:css, '#meal_plan_diet_type_high-protein').click
+      click_button "Update Meal Plan"
+
+      expect(current_path).to eq(trainer_client_path(@client2))
+      expect(page).to have_content("Successfully updated meal plan for #{@client2.first_name} #{@client2.last_name}")
+
+      meal_plan = MealPlan.last
+
+      expect(meal_plan.calories).to eq(400)
+      expect(meal_plan.vegetarian).to be true
+      expect(meal_plan.diet_type).to eq('high-protein')
+    end
+
+    it "defaults to vegan if both vegetarian and vegan are chosen" do
       visit trainer_dashboard_path
 
       click_button "#{@client2.first_name} #{@client2.last_name}"
