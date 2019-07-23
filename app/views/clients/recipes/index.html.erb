@@ -1,0 +1,21 @@
+<h1>Suggested Meals</h1>
+<% facade.recipes.each do |recipe| %>
+  <section class='recipe'>
+    <section class='name'>
+      <%= link_to recipe.name, recipe.url %>
+    </section>
+    <section class='calories'>
+      <%= recipe.calories %>
+    </section>
+    <section class='carbs'>
+      <%= recipe.carbs %>
+    </section>
+    <section class='protein'>
+      <%= recipe.protein %>
+    </section>
+    <section class='servings'>
+      <%= recipe.servings %>
+    </section>
+    <img src="<%= recipe.img %>" alt="<%= recipe.name %>-img">
+  </section>
+<% end %>

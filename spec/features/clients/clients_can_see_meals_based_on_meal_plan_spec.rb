@@ -13,9 +13,9 @@ RSpec.describe "As a registered client" do
 
       visit client_dashboard_path
 
-      click_button "See Trainer Meal Suggestions"
+      click_link "See Trainer Meal Suggestions"
 
-      expect(current_path).to eq(client_recipes_path)
+      expect(current_path).to eq(clients_recipes_path)
 
       expect(page).to have_css('.recipe', count: 20)
 
