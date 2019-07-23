@@ -1,5 +1,11 @@
-<%= form_tag(trainer_invite_path, method: :post) do %>
-  <%= label_tag(:email, "Client Email") %>
-  <%= text_field(:email, "Client Email") %>
-  <%= submit_tag("Invite") %>
-<% end %>
+<div class="container">
+  <div class="col centered">
+  <h1>Enter the client's E-mail address</h1>
+  <br>
+  <%= form_tag(trainer_invite_path, method: :post) do %>
+    <%= label_tag(:email, "Client Email") %>
+    <%= text_field(:email, "Client Email") %>
+    <%= submit_tag("Invite", class: "btn-primary") %>
+  <% end %>
+  </div>
+</div>

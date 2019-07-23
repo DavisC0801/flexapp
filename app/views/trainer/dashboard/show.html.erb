@@ -1,10 +1,17 @@
-<p><%= link_to "Invite a new client to signup", trainer_invite_path %></p>
-
-<div id="clients">
-  <% @trainer.clients.each do |client| %>
-    <div class="client-<%= client.id %>">
-      <%= button_to "#{client.first_name} #{client.last_name}", trainer_client_path(client.id), method: :get %>
-      <%= link_to client.email, client.email %>
-    </div><br>
-  <% end %>
+<div class="container">
+  <div class="col">
+    <div class="row">
+      <p><%= link_to "Invite a new client to signup", trainer_invite_path, class: "btn-primary" %></p>
+    </div>
+    <div id="clients">
+      <% @trainer.clients.each do |client| %>
+        <div class="row">
+          <div class="client-<%= client.id %>">
+            <%= button_to "#{client.first_name} #{client.last_name}", trainer_client_path(client.id), method: :get %>
+            <%= link_to client.email, client.email %>
+          </div><br>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

@@ -12,7 +12,7 @@
   <body>
   <div class="flash-message">
     <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, class: name %>
+      <%= content_tag :div, msg, class: "#{name} alert alert-dark"%>
     <% end %>
   </div>
     <%= yield %>

@@ -22,3 +22,7 @@ body {
 .btn-primary{
   background-color: #FBA100;
 }
+
+.centered{
+  text-align: center;
+}
