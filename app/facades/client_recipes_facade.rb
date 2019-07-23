@@ -1,5 +1,4 @@
 class ClientRecipesFacade
-
   def initialize(meal_plan)
     @meal_plan = meal_plan
   end

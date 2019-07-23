@@ -29,5 +29,11 @@ RSpec.describe "As a registered client" do
         end
       end
     end
+
+    it "Doesn't show link to see recipes if no meal plan associated" do
+      visit client_dashboard_path
+
+      expect(page).to_not have_link("See Trainer Meal Suggestions")
+    end
   end
 end
