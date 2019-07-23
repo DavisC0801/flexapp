@@ -5,11 +5,12 @@ class Trainer::MealPlansController < ApplicationController
   end
 
   def create
-    client = Client.find(params[:format])
-    @meal_plan = client.build_meal_plan(meal_plan_params)
+    @client = Client.find(params[:format])
+    @meal_plan = @client.build_meal_plan(meal_plan_params)
+    @meal_plan.vegetarian = false if @meal_plan.vegetarian && @meal_plan.vegan
     if @meal_plan.save
-      flash.notice = "Successfully created meal plan for #{client.first_name} #{client.last_name}"
-      redirect_to trainer_client_path(client)
+      flash.notice = "Successfully created meal plan for #{@client.first_name} #{@client.last_name}"
+      redirect_to trainer_client_path(@client)
     else
       render :new
     end

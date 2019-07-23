@@ -1,3 +1,8 @@
+<% @meal_plan.errors.full_messages.each do |msg| %>
+  <div class="alert alert-warning" role="alert">
+    <%= msg %>
+  </div>
+<% end %>
 <h1>Creating <%= @client.first_name %> <%= @client.last_name %>'s Meal Plan</h1>
 <%= form_for [@client.trainer, @client, @meal_plan] do |f| %>
 
@@ -8,6 +13,7 @@
   <%= f.text_field :excluded %>
 
   <h4>Restrictions</h4>
+  <p>Please Choose One of the following</p>
   <%= f.radio_button(:vegetarian, true) %>
   <%= f.label(:vegetarian, "Vegetarian", value: true) %>
 
