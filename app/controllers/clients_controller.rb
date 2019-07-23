@@ -1,4 +1,6 @@
-class ClientsController < ApplicationController
+class ClientsController < Clients::BaseController
+  before_action :require_client
+
   def show
     if current_client && !current_client.weight_logs.empty?
       check_log_age

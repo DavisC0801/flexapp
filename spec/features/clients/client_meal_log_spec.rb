@@ -2,12 +2,16 @@ require "rails_helper"
 
 describe "As a client when I visit my dashboard" do
   it "shows a link labeled Log a Meal" do
+    client = create(:client)
+    allow_any_instance_of(ApplicationController).to receive(:current_client).and_return(client)
     visit client_dashboard_path
     expect(page).to have_link "Log a Meal"
   end
 
   it "It links to a place to enter a meal name and portion size" do
     VCR.use_cassette("meal/pizza") do
+      client = create(:client)
+      allow_any_instance_of(ApplicationController).to receive(:current_client).and_return(client)
       visit client_dashboard_path
       click_link("Log a Meal")
       expect(current_path).to eq(new_meal_logs_path)
@@ -19,6 +23,8 @@ describe "As a client when I visit my dashboard" do
 
   it "creates a meal log using the API" do
     VCR.use_cassette("meal/pizza") do
+      client = create(:client)
+      allow_any_instance_of(ApplicationController).to receive(:current_client).and_return(client)
       visit new_meal_logs_path
       fill_in("meal_input", with: "pizza")
       click_button("Large")
@@ -36,6 +42,8 @@ describe "As a client when I visit my dashboard" do
   end
 
   it "creates a meal log manually" do
+    client = create(:client)
+    allow_any_instance_of(ApplicationController).to receive(:current_client).and_return(client)
     visit new_meal_logs_path
     fill_in("meal_log[name]", with: "pizza")
     fill_in("meal_log[meal_calories]", with: "1")
@@ -57,6 +65,8 @@ describe "As a client when I visit my dashboard" do
   end
 
   it "does not create a meal with missing information" do
+    client = create(:client)
+    allow_any_instance_of(ApplicationController).to receive(:current_client).and_return(client)
     visit new_meal_logs_path
     click_button("Log Meal")
 
@@ -67,6 +77,8 @@ describe "As a client when I visit my dashboard" do
 
   it "will search for meals with spaces in the name" do
     VCR.use_cassette("meal/pizzabagel") do
+      client = create(:client)
+      allow_any_instance_of(ApplicationController).to receive(:current_client).and_return(client)
       visit client_dashboard_path
       click_link("Log a Meal")
       expect(current_path).to eq(new_meal_logs_path)
