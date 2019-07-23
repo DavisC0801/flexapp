@@ -9,24 +9,25 @@ RSpec.describe "As a registered client" do
     end
 
     it "allows me to see meals based on my meal plan" do
-      @client.create_meal_plan(calories: 100, vegetarian: true, diet_type: 'high-protein', excluded: 'nuts')
+      VCR.use_cassette("recipes") do
+        @client.create_meal_plan(calories: 100, vegetarian: true, diet_type: 'high-protein', excluded: 'nuts')
 
-      visit client_dashboard_path
+        visit client_dashboard_path
 
-      click_link "See Trainer Meal Suggestions"
+        click_link "See Trainer Meal Suggestions"
 
-      expect(current_path).to eq(clients_recipes_path)
+        expect(current_path).to eq(clients_recipes_path)
 
-      expect(page).to have_css('.recipe', count: 20)
+        expect(page).to have_css('.recipe', count: 30)
 
-      within(first('.recipe')) do
-        expect(page).to have_css('.name')
-        expect(page).to have_css('.calories')
-        expect(page).to have_css('.carbs')
-        expect(page).to have_css('.protein')
-        expect(page).to have_css('.servings')
+        within(first('.recipe')) do
+          expect(page).to have_css('.name')
+          expect(page).to have_css('.calories')
+          expect(page).to have_css('.carbs')
+          expect(page).to have_css('.protein')
+          expect(page).to have_css('.servings')
+        end
       end
     end
-
   end
 end
