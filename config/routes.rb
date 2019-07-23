@@ -17,9 +17,11 @@ Rails.application.routes.draw do
     get '/invite', to: 'invite#new'
     post '/invite', to: 'invite#create'
     get '/dashboard', to: 'dashboard#show'
-    get '/clients/:id', to: 'clients#show', as: "client"
     get "register/:trainer", to: "clients#new", as: 'register'
     post "register/:trainer", to: "clients#create"
+    resources :clients, only: [:show] do
+      resources :meal_plans, only: [:new, :create, :edit, :update]
+    end
   end
 
 
@@ -28,6 +30,9 @@ Rails.application.routes.draw do
 
   get '/trainer_messages/new', to: 'clients/trainer_messages#new'
   post '/trainer_messages/create', to: 'clients/trainer_messages#create'
+
+  get 'trainer/client_messages/new', to: 'trainer/client_messages#new'
+  post 'trainer/client_messages/create', to: 'trainer/client_messages#create'
 
   get '/weight_logs/new', to: 'clients/weight_logs#new'
   post '/weight_logs/create', to: 'clients/weight_logs#create', as: 'weight_logs'
