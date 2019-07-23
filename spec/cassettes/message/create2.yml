@@ -1,0 +1,75 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.twilio.com/2010-04-01/Accounts/<TWILIO_ACCOUNT_SID>/Messages.json
+    body:
+      encoding: UTF-8
+      string: Body=HELLO+Ansel+Adams%2C+LETS+GET+FIT%21%21%21&From=%2B17205751348&To=%2B15715943614
+    headers:
+      User-Agent:
+      - twilio-ruby/5.25.1 (ruby/x86_64-darwin18 2.4.1-p111)
+      Accept-Charset:
+      - utf-8
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept:
+      - application/json
+      Authorization:
+      - Basic QUM3ODVkMzIxMGIwMWJkYTAxMzUxODY3NDdmMGY3NDIxYjpmODQ1MjQ0MmUwYjg1ZDczNjYxZmQ0YmQ1ZmEwNTIyYw==
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: CREATED
+    headers:
+      Date:
+      - Tue, 23 Jul 2019 00:02:57 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '836'
+      Connection:
+      - keep-alive
+      Twilio-Concurrent-Requests:
+      - '1'
+      Twilio-Request-Id:
+      - RQ947cba0871c74dcd946b08ee6c12d1eb
+      Twilio-Request-Duration:
+      - '0.093'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match,
+        If-Unmodified-Since
+      Access-Control-Allow-Methods:
+      - GET, POST, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Powered-By:
+      - AT-5000
+      X-Shenanigans:
+      - none
+      X-Home-Region:
+      - us1
+      X-Api-Domain:
+      - api.twilio.com
+      Strict-Transport-Security:
+      - max-age=31536000
+    body:
+      encoding: UTF-8
+      string: '{"sid": "SM1c88748d146b4666988129e3e62fa980", "date_created": "Tue,
+        23 Jul 2019 00:02:57 +0000", "date_updated": "Tue, 23 Jul 2019 00:02:57 +0000",
+        "date_sent": null, "account_sid": "<TWILIO_ACCOUNT_SID>", "to": "+15715943614",
+        "from": "<TWILIO_PHONE_NUMBER>", "messaging_service_sid": null, "body": "Sent
+        from your Twilio trial account - HELLO Ansel Adams, LETS GET FIT!!!", "status":
+        "queued", "num_segments": "1", "num_media": "0", "direction": "outbound-api",
+        "api_version": "2010-04-01", "price": null, "price_unit": "USD", "error_code":
+        null, "error_message": null, "uri": "/2010-04-01/Accounts/<TWILIO_ACCOUNT_SID>/Messages/SM1c88748d146b4666988129e3e62fa980.json",
+        "subresource_uris": {"media": "/2010-04-01/Accounts/<TWILIO_ACCOUNT_SID>/Messages/SM1c88748d146b4666988129e3e62fa980/Media.json"}}'
+    http_version: 
+  recorded_at: Tue, 23 Jul 2019 00:02:57 GMT
+recorded_with: VCR 5.0.0
