@@ -1,7 +1,12 @@
-<div class="client-heading">
-  Search for a Meal
-</div>
+<% facade.meal_log.errors.full_messages.each do |msg| %>
+  <div class="alert alert-warning" role="alert">
+    <%= msg %>
+  </div>
+<% end %>
 <div class="container">
+  <div class="client-heading">
+    Search for a Meal
+  </div>
   <div class="col">
     <div class="row justify-content-md-center">
       <%= form_tag :meal_searches, url: meal_searches_path, method: :post do %>

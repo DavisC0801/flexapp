@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   get "register", to: "users#new", as: "register"
 
   get "/client/dashboard", to: "clients#show"
-  # get '/trainer/dashboard', to: 'trainers#show'# ?
+
   post "register", to: "users#create"
+  post '/login', to: 'sessions#create'
 
   namespace :trainer do
     get '/invite', to: 'invite#new'

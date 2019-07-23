@@ -1,7 +1,17 @@
 <div class="container">
   <div class="col">
+    <%= form_tag login_path, url: {action: 'create'} do %>
     <div class="row">
-      <%= link_to "Login", login_path, class: "welcome btn-primary btn-xl", id: "first-welcome" %><br>
+      <%= label_tag :email %>
+      <%= text_field_tag :email %>
+    </div>
+    <div class="row">
+      <%= label_tag :password %>
+      <%= text_field_tag :password %>
+    </div>
+    <div class="row">
+      <%= submit_tag 'Log In', class: "welcome btn-primary btn-xl" %>
+      <% end %>
     </div>
     <div class="row">
       <%= link_to "Register", register_path, class: "welcome btn-primary btn-xl" %><br>

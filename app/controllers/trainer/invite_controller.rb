@@ -1,4 +1,4 @@
-class Trainer::InviteController < ApplicationController
+class Trainer::InviteController < Trainer::BaseController
   def new
   end
 
