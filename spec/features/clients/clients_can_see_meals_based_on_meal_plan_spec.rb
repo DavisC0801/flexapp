@@ -9,7 +9,7 @@ RSpec.describe "As a registered client" do
     end
 
     it "allows me to see meals based on my meal plan" do
-      VCR.use_cassette("recipes") do
+      VCR.use_cassette("meal_plan/recipes") do
         @client.create_meal_plan(calories: 100, vegetarian: true, diet_type: 'high-protein', excluded: 'nuts')
 
         visit client_dashboard_path

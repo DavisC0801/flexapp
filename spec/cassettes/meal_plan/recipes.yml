@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - gunicorn/19.9.0
       Date:
-      - Tue, 23 Jul 2019 20:39:58 GMT
+      - Tue, 23 Jul 2019 20:59:59 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -136,5 +136,5 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Tue, 23 Jul 2019 20:39:58 GMT
+  recorded_at: Tue, 23 Jul 2019 20:59:59 GMT
 recorded_with: VCR 5.0.0
