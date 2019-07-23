@@ -24,6 +24,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :clients do
+    get '/recipes', to: 'recipes#index'
+  end
+
 
   resource :meal_logs, only: [:new, :create]
   resource :meal_searches, only: :create
