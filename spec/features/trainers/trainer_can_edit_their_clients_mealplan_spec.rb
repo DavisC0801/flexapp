@@ -17,10 +17,10 @@ RSpec.describe "As a registered Trainer" do
 
       click_button "Create Client's Meal Plan"
 
-      fill_in "Calories Per Meal", with: '200'
-      fill_in "Excluded", with: 'nuts'
-      find(:css, '#vegetarian').click
-      find(:css, '#high_protein').click
+      fill_in 'meal_plan[calories]', with: '200'
+      fill_in 'meal_plan[excluded]', with: 'nuts'
+      find(:css, '#meal_plan_vegetarian_true').click
+      find(:css, '#meal_plan_diet_type_low-carb').click
       click_button "Create Meal Plan"
 
       expect(current_path).to eq(trainer_client_path(@client2))
@@ -28,12 +28,12 @@ RSpec.describe "As a registered Trainer" do
 
       meal_plan = MealPlan.last
 
-      expect(@client2.meal_plans).to include(meal_plan)
+      expect(@client2.meal_plan).to eq(meal_plan)
       expect(meal_plan.calories).to eq(200)
       expect(meal_plan.excluded).to eq('nuts')
       expect(meal_plan.vegetarian).to be true
       expect(meal_plan.vegan).to be false
-      expect(meal_plan.diet_type).to eq('high_protein')
+      expect(meal_plan.diet_type).to eq('low-carb')
     end
   end
 end

@@ -17,7 +17,8 @@ Rails.application.routes.draw do
     post '/invite', to: 'invite#create'
     get '/dashboard', to: 'dashboard#show'
     get '/clients/:id', to: 'clients#show', as: "client"
-    get '/clients/:id/meal_plan/new', to: 'meal_plans#new', as: 'new_client_meal_plan'
+    get '/clients/:id/meal_plans/new', to: 'meal_plans#new', as: 'new_client_meal_plan'
+    post '/clients/:id/meal_plans', to: 'meal_plans#create', as: 'client_meal_plans'
     get "register/:trainer", to: "clients#new", as: 'register'
     post "register/:trainer", to: "clients#create"
   end
