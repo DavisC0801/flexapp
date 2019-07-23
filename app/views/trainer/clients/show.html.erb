@@ -1,4 +1,5 @@
 <h1><%= @client.first_name %> <%= @client.last_name %></h1>
 Calories, Carbs, Sugar, etc. Stat Graphs here
 <%= button_to "Change Client's Meal Plan" %>
+<%= button_to "Send Message to Client", trainer_client_messages_new_path(client: @client), method: :get if @client.phone_num? %>
 <%= button_to "Back To Trainer's Client List", trainer_dashboard_path, method: :get %>
