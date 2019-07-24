@@ -13,7 +13,7 @@ RSpec.describe "User login" do
 
       click_button "Register Account"
 
-      expect(current_path).to eq('/trainer/dashboard')
+      expect(current_path).to eq(trainer_dashboard_path)
 
       trainer = Trainer.last
 
@@ -32,8 +32,7 @@ RSpec.describe "User login" do
 
       click_button "Register Account"
 
-      expect(current_path).to eq('/register')
-      expect(page).to have_content('Missing or Invalid Credentials')
+      expect(current_path).to eq(new_trainer_path)
     end
   end
 
