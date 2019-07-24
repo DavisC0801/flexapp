@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+ #myProgress {
+   width: 20%;
+   background-color: lightblue;
+   text-align: center;
+ }
+
+ #myBar {
+   /* width: 75%; */
+   height: 30px;
+   /* background-color: green; */
+ }
