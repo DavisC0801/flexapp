@@ -6,16 +6,15 @@ Rails.application.routes.draw do
   get "logout", to: "sessions#destroy", as: "logout"
   get "login", to: "sessions#new", as: "login"
 
-  get "register", to: "users#new", as: "register"
+  get "register", to: "users#show", as: "register"
 
   get "/client/dashboard", to: "clients#show"
 
   get '/auth/google_oauth2', as: 'google_oauth'
   get '/auth/:provider/callback', to: 'sessions#google_oauth'
-  get '/auth/failure', to: redirect('/') 
+  get '/auth/failure', to: redirect('/')
 
   post "register", to: "users#create"
-  post '/login', to: 'sessions#create'
 
   namespace :trainer do
     get '/invite', to: 'invite#new'
@@ -32,7 +31,8 @@ Rails.application.routes.draw do
     get '/recipes', to: 'recipes#index'
   end
 
-
+  resource :trainer, only: [:new, :create]
+  resource :user, only: [:new, :create]
   resource :meal_logs, only: [:new, :create]
   resource :meal_searches, only: :create
 
