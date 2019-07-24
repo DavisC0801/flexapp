@@ -1,6 +1,7 @@
 class Client < ApplicationRecord
   belongs_to :trainer, required: false
   has_many :weight_logs
+  has_many :meal_logs
   has_one :meal_plan, dependent: :destroy
 
   validates :email, uniqueness: true, presence: true
