@@ -21,7 +21,7 @@ class UsersController < ApplicationController
       end
     else
       flash[:failure] = client.errors.full_messages.first
-      redirect_to register_path
+      redirect_to new_user_path
     end
   end
 

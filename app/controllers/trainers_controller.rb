@@ -9,8 +9,8 @@ class TrainersController < ApplicationController
       session[:trainer_id] = trainer.id
       redirect_to trainer_dashboard_path
     else
-      flash[:failure] = 'Missing or Invalid Credentials'
-      redirect_to register_path
+      flash[:failure] = trainer.errors.full_messages.first
+      redirect_to new_trainer_path
     end
   end
 
