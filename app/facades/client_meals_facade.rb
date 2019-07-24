@@ -1,4 +1,5 @@
-class ClientDashboardFacade
+class ClientMealsFacade
+  attr_reader :client
   def initialize(client)
     @client = client
   end

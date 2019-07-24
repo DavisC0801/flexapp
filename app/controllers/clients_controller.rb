@@ -8,7 +8,7 @@ class ClientsController < Clients::BaseController
       flash.alert = "You haven't logged your weight yet!"
     end
     render locals: {
-      facade: ClientDashboardFacade.new(current_client)
+      facade: ClientMealsFacade.new(current_client)
     }
   end
 
