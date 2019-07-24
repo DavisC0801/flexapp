@@ -7,4 +7,8 @@ class Client < ApplicationRecord
   validates :email, uniqueness: true, presence: true
   validates_presence_of :first_name, :last_name, :password
   has_secure_password
+
+  def recent_meals(limit)
+    meal_logs.limit(limit)
+  end
 end
