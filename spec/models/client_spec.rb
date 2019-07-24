@@ -33,8 +33,8 @@ RSpec.describe Client, type: :model do
       wl3 = client.weight_logs.create(weight: 10, created_at: "Wed, 26 Jul 2019 21:13:01 UTC +00:00")
       wl4 = client.weight_logs.create(weight: 10, created_at: "Wed, 27 Jul 2019 21:13:01 UTC +00:00")
 
-      expect(client.recent_weights(3)).to eq([wl1,wl2,wl3])
-      expect(client.recent_weights(4)).to eq([wl1,wl2,wl3,wl4])
+      expect(client.recent_weights(3)).to eq([wl4,wl3,wl2])
+      expect(client.recent_weights(4)).to eq([wl4,wl3,wl2,wl1])
     end
   end
 end

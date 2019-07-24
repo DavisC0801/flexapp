@@ -48,7 +48,7 @@ class ClientDashboardFacade
   private
 
   def weight_logs(limit=14)
-    @weight_logs ||= @client.recent_weights(limit)
+    @weight_logs ||= @client.recent_weights(limit).reverse
   end
 
   def meals(limit=5)
