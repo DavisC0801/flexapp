@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 
   get "/client/dashboard", to: "clients#show"
 
+  get '/auth/google_oauth2', as: 'google_oauth'
+  get '/auth/:provider/callback', to: 'sessions#google_oauth'
+  get '/auth/failure', to: redirect('/') 
+
   post "register", to: "users#create"
   post '/login', to: 'sessions#create'
 
