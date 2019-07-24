@@ -3,6 +3,8 @@ class WeightLog < ApplicationRecord
 
   belongs_to :client
 
+  default_scope { order(created_at: :desc) }
+
   def self.latest
     order(created_at: :desc).take
   end

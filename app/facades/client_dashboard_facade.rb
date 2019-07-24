@@ -3,10 +3,6 @@ class ClientDashboardFacade
     @client = client
   end
 
-  def meals
-    @meals ||= @client.meal_logs.take(5)
-  end
-
   def meal_names
     meals.map do |meal|
       meal.name.capitalize
@@ -37,4 +33,21 @@ class ClientDashboardFacade
     end
   end
 
+  def weight_amount
+
+  end
+
+  def weight_date
+
+  end
+
+  private
+
+  def weight_logs(limit=14)
+    @weight_logs ||= @client.weight_logs.take(limit)
+  end
+
+  def meals(limit=5)
+    @meals ||= @client.meal_logs.take(limit)
+  end
 end
