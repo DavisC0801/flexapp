@@ -9,7 +9,6 @@ class Trainer::ClientsController < ApplicationController
 
   def create
     trainer = Trainer.find_by(email: params[:client][:trainer_email])
-    binding.pry
     client = trainer.clients.create(client_info)
     session[:client_id] = client.id
     redirect_to client_dashboard_path

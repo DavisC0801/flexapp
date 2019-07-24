@@ -27,6 +27,31 @@ RSpec.describe "sessions spec" do
 
       expect(page).to have_content("The page you were looking for doesn't exist")
     end
+
+    it "can't log in without proper credentials" do
+      visit '/'
+
+      fill_in 'Email', with: 'mail@example.com'
+
+      click_on 'Log In'
+
+      expect(current_path).to eq('/')
+      expect(page).to have_content("Invalid Email")
+    end
+
+    it "can't log in without a proper password" do
+      client = create(:client)
+
+      visit '/'
+
+      fill_in 'Email', with: client.email
+      fill_in 'Password', with: 'ewnviauwn'
+
+      click_on 'Log In'
+
+      expect(current_path).to eq('/')
+      expect(page).to have_content("Incorrect Password")
+    end
   end
 
   context "as a trainer" do

@@ -5,13 +5,22 @@ class SessionsController < ApplicationController
       if client&.authenticate(params[:password])
         session[:client_id] = client.id
         redirect_to client_dashboard_path
+      else
+        flash[:failure] = "Incorrect Password"
+        redirect_to '/'
       end
     elsif Trainer.find_by(email: params[:email])
       trainer = Trainer.find_by(email: params[:email])
       if trainer&.authenticate(params[:password])
         session[:trainer_id] = trainer.id
         redirect_to trainer_dashboard_path
+      else
+        flash[:failure] = "Incorrect Password"
+        redirect_to '/'
       end
+    else
+      flash[:failure] = 'Invalid Email'
+      redirect_to '/'
     end
   end
 

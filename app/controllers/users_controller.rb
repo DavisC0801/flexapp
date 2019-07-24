@@ -13,7 +13,6 @@ class UsersController < ApplicationController
     elsif params['Client']
       client = Client.create(client_info)
       trainer = Trainer.find_by(email: params[:trainer_email])
-      binding.pry
       trainer.clients << client
       session[:client_id] = client.id
       redirect_to client_dashboard_path
