@@ -4,19 +4,25 @@
       <%= current_trainer.first_name.capitalize %>'s Clients
     </div>
     <div class="row">
-      <p><%= link_to "Invite a new client to signup", trainer_invite_path, class: "btn-primary" %></p>
-    </div>
+      <p><%= link_to "Invite a new client to signup", trainer_invite_path, class: "btn btn-large btn-primary" %></p>
+    </div><br>
     <div id="clients">
       <% @trainer.clients.each do |client| %>
         <div class="row">
           <div class="client-<%= client.id %>">
-            <%= button_to "#{client.first_name} #{client.last_name}", trainer_client_path(client.id), method: :get %>
+            <%= link_to "#{client.first_name} #{client.last_name}", trainer_client_path(client.id), method: :get, class: "btn btn-large btn-primary" %><br>
             <%= link_to client.email, client.email %>
-            <div id="myProgress">Progress over last 7 days
-              <div id="myBar" style="width: <%= client.progress %>; background-color: blue"></div>
+            <div id="myProgress">
+              <% if client.progress >= 90 %>
+                <div id="myBar" style="width: <%= client.progress %>%; background-color: #57BC90"></div>Progress over last 7 days
+              <% elsif client.progress >= 80 %>
+                <div id="myBar" style="width: <%= client.progress %>%; background-color: yellow"></div>Progress over last 7 days
+              <% else %>
+                <div id="myBar" style="width: <%= client.progress %>%; background-color: red"></div>Progress over last 7 days
+              <% end %>
             </div>
-          </div><br>
-        </div>
+          </div>
+        </div><br>
       <% end %>
     </div>
   </div>
