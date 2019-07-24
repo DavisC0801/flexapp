@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="col-14">
+  <div class="col-14 centered">
     <br>
     <%= form_tag login_path, url: {action: 'create'} do %>
     <div class="row">
@@ -22,7 +22,9 @@
       <%= submit_tag 'Log In', class: "welcome btn-primary btn-xl" %>
       <% end %>
     </div>
-    <%= link_to "Sign in with Google", google_oauth_path %>
+    <div class="row">
+      <%= link_to "Sign in with Google", google_oauth_path, class: "welcome google_button btn" %>
+    </div>
     <div class="row">
       <%= link_to "Register", register_path, class: "welcome btn-primary btn-xl" %><br>
     </div>
