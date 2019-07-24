@@ -15,9 +15,9 @@
  */
 
 #myProgress {
- width: 20%;
+ width: 110%;
  background-color: lightblue;
- text-align: center;
+ text-align: left;
 }
 
 #myBar {
