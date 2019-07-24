@@ -1,6 +1,26 @@
-<h3>Consider using your name in the text message so your trainer knows who you are</h3>
-<%= form_tag trainer_messages_create_path do %>
-  <%= label_tag :message %>
-  <%= text_area_tag :message %>
-  <%= submit_tag 'Send Message' %>
-<% end %>
+<div class="container">
+  <div class="col-14">
+    <div class="row">
+      <h1 class="client-heading">Message your Trainer</h1>
+    </div>
+    <br>
+    <div class="row">
+      <h2>Consider using your name in the text message so your trainer knows who you are.</h2>
+    </div>
+    <br>
+    <div class="row">
+      <%= form_tag trainer_messages_create_path do %>
+      <div class="col">
+        <%= label_tag :message %>
+      </div>
+      <div class="col">
+        <%= text_area_tag :message %>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <%= submit_tag 'Send Message', class: "btn-primary" %>
+    </div>
+    <% end %>
+  </div>
+</div>

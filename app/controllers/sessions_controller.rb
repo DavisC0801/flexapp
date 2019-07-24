@@ -12,6 +12,9 @@ class SessionsController < ApplicationController
         session[:trainer_id] = trainer.id
         redirect_to trainer_dashboard_path
       end
+    else
+      flash[:warning] = "Invalid Username/Password Combination!"
+      redirect_to root_path
     end
   end
 

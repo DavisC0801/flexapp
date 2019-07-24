@@ -1,9 +1,21 @@
-<h1><%= @client.first_name %> <%= @client.last_name %></h1>
-Calories, Carbs, Sugar, etc. Stat Graphs here
-<% if !@client.meal_plan %>
-  <%= button_to "Create Client's Meal Plan", new_trainer_client_meal_plan_path(@client), method: :get %>
-<% else %>
-  <%= button_to "Change Client's Meal Plan", edit_trainer_client_meal_plan_path(@client), method: :get %>
-<% end %>
-<%= button_to "Send Message to Client", trainer_client_messages_new_path(client: @client), method: :get if @client.phone_num? %>
-<%= button_to "Back To Trainer's Client List", trainer_dashboard_path, method: :get %>
+<div class="container">
+  <div class="col-14">
+    <div class="row">
+      <h1><%= @client.first_name %> <%= @client.last_name %>'s Information</h1>
+    </div>
+  </div>
+  Calories, Carbs, Sugar, etc. Stat Graphs here
+  <div class="row">
+    <% if !@client.meal_plan %>
+      <%= button_to "Create Client's Meal Plan", new_trainer_client_meal_plan_path(@client), method: :get, class: "btn-primary" %>
+    <% else %>
+      <%= button_to "Change Client's Meal Plan", edit_trainer_client_meal_plan_path(@client), method: :get, class: "btn-primary" %>
+    <% end %>
+   </div>
+  <div class="row">
+    <%= button_to "Send Message to Client", trainer_client_messages_new_path(client: @client), method: :get, class: "btn-primary" if @client.phone_num? %>
+  </div>
+  <div class="row">
+    <%= button_to "Back To Trainer's Client List", trainer_dashboard_path, method: :get, class: "btn-primary" %>
+  </div>
+</div>

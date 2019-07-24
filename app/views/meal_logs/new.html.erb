@@ -1,35 +1,106 @@
-<%= form_tag :meal_searches, url: meal_searches_path, method: :post do %>
-  <%= text_field_tag :meal_input %><br>
-  <%= submit_tag "Small" %>
-  <%= submit_tag "Medium" %>
-  <%= submit_tag "Large" %>
-<% end %>
-<br>
-
-<% facade.meal_log.errors.full_messages.each do |msg| %>
+<div class="container">
+  <% facade.meal_log.errors.full_messages.each do |msg| %>
   <div class="alert alert-warning" role="alert">
     <%= msg %>
   </div>
-<% end %>
-
-<%= form_for facade.meal_log do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name  %><br>
-  <%= f.label :meal_date %>
-  <%= f.date_field :meal_date  %><br>
-  <%= f.label :meal_time %>
-  <%= f.time_field :meal_time %><br>
-  <%= f.label :meal_calories %>
-  <%= f.number_field :meal_calories %><br>
-  <%= f.label :meal_fats %>
-  <%= f.number_field :meal_fats %><br>
-  <%= f.label :meal_carbs %>
-  <%= f.number_field :meal_carbs %><br>
-  <%= f.label :meal_protein %>
-  <%= f.number_field :meal_protein %><br>
-  <%= f.label :meal_sugars %>
-  <%= f.number_field :meal_sugars %><br>
-  <%= f.label :meal_sodium %>
-  <%= f.number_field :meal_sodium %><br>
-  <%= f.submit "Log Meal" %>
-<% end %>
+  <% end %>
+  <div class="client-heading">
+    Search for a Meal
+  </div>
+  <div class="col-14">
+    <div class="row">
+      <%= form_tag :meal_searches, url: meal_searches_path, method: :post do %>
+      <%= text_field_tag :meal_input %><br>
+    </div>
+    <div class="meal-log-text">
+      Portion Size
+    </div>
+    <div class="row">
+        <%= submit_tag "Small", class: "btn-primary meal-btn" %>
+        <%= submit_tag "Medium", class: "btn-primary meal-btn" %>
+        <%= submit_tag "Large", class: "btn-primary meal-btn" %>
+      <% end %>
+    </div>
+    <br>
+    <div class="client-heading">
+      Log a Meal
+    </div>
+    <%= form_for facade.meal_log do |f| %>
+    <div class="row">
+      <div class="col-3">
+        <%= f.label :name %>
+      </div>
+      <div class="col-3">
+        <%= f.text_field :name  %><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <%= f.label :meal_date %>
+      </div>
+      <div class="col-3">
+        <%= f.date_field :meal_date  %><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <%= f.label :meal_time %>
+      </div>
+      <div class="col-3">
+        <%= f.time_field :meal_time %><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <%= f.label :meal_calories %>
+      </div>
+      <div class="col-3">
+        <%= f.number_field :meal_calories %><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <%= f.label :meal_fats %>
+      </div>
+      <div class="col-3">
+        <%= f.number_field :meal_fats %><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <%= f.label :meal_carbs %>
+      </div>
+      <div class="col-3">
+        <%= f.number_field :meal_carbs %><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <%= f.label :meal_protein %>
+      </div>
+      <div class="col-3">
+        <%= f.number_field :meal_protein %><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <%= f.label :meal_sugars %>
+      </div>
+      <div class="col-3">
+        <%= f.number_field :meal_sugars %><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <%= f.label :meal_sodium %>
+      </div>
+      <div class="col-3">
+        <%= f.number_field :meal_sodium %><br>
+      </div>
+    </div>
+    <div class="row">
+      <%= f.submit "Log Meal", class: "btn-primary meal-btn" %>
+    </div>
+    <% end %>
+  </div>
+</div>

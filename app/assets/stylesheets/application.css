@@ -13,7 +13,25 @@
  *= require_tree .
  *= require_self
  */
-.card {
+body{
+  background-color: #CAEBF2;
+  font-size: 28pt;
+}
+
+.btn-primary{
+  background-color: #FBA100;
+}
+
+.centered{
+  text-align: center;
+}
+
+.navbar-header{
+  font-size: 28pt;
+  font-weight: bold;
+}
+
+.card{
   min-width: 250px;
   margin: 10px 10px 10px 10px;
 }
