@@ -3,8 +3,11 @@
 <div id="clients">
   <% @trainer.clients.each do |client| %>
     <div class="client-<%= client.id %>">
-      <%= button_to "#{client.first_name} #{client.last_name}", trainer_client_path(client.id), method: :get %>
+      <%= button_to "#{client.first_name} #{client.last_name}", trainer_client_path(client), method: :get %>
       <%= link_to client.email, client.email %>
+      <div id="myProgress">Progress over last 7 days
+        <div id="myBar" style="width: <%= client.progress %>; background-color: blue"></div>
+      </div>
     </div><br>
   <% end %>
 </div>
