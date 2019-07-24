@@ -21,6 +21,20 @@ RSpec.describe "User login" do
       expect(trainer.last_name).to eq("Mctrainerton")
       expect(trainer.email).to eq("mail@example.com")
     end
+
+    it "can't register with missing credentials" do
+      visit '/register'
+
+      fill_in "First Name", with: "Trainer"
+      fill_in "Last Name", with: "Mctrainerton"
+      fill_in "Password", with: "password"
+      fill_in "Confirm your Password", with: "password"
+
+      click_on "Create Account as a Trainer"
+
+      expect(current_path).to eq('/register')
+      expect(page).to have_content('Missing or Invalid Credentials')
+    end
   end
 
   context "as a visitor who is a client" do
