@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
       end
     else
       flash[:failure] = 'Invalid Email'
-      redirect_to '/'
+      redirect_to root_path
     end
   end
 

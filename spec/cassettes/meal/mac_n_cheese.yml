@@ -1,0 +1,40 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://thawing-lowlands-89167.herokuapp.com/food_info/mac%20n%20cheese/?size=large
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Server:
+      - gunicorn/19.9.0
+      Date:
+      - Tue, 23 Jul 2019 21:00:26 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '179'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"calories":752,"carbs":94,"fats":32,"meal":"mac n cheese","protein":19,"size":"large","sodium":1338,"sugars":16,"thumbnail":"https://d2xdmhkmkbyw75.cloudfront.net/35_thumb.jpg"}
+
+'
+    http_version: 
+  recorded_at: Tue, 23 Jul 2019 21:00:26 GMT
+recorded_with: VCR 5.0.0
