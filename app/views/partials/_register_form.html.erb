@@ -4,7 +4,7 @@
 <br>
 <div class="container">
   <div class="col-14 centered">
-    <%= form_for :user do |f| %>
+    <%= form_for user, url: form_submit_path do |f| %>
       <div class="row">
         <div class="col-4">
           <%= f.label :first_name, "First Name" %>
@@ -45,20 +45,20 @@
           <%= f.password_field :password_confirmation %>
         </div>
       </div>
-      <% if user == "client" %>
+      <% if user_type == "client" %>
         <div class="row">
           <div class="col-4">
             <%= f.label :trainer_email, "Trainer's Email" %>
           </div>
           <div class="col-4">
-            <%= f.text_field :trainer_email %>
+            <%= text_field_tag :trainer_email %>
           </div>
         </div>
       <% end %>
       <br>
       <div class="row">
         <div class="col">
-          <%= f.submit "Register Account", name: 'user', class: "btn-primary" %>
+          <%= f.submit "Register Account", class: "btn-primary" %>
         </div>
       </div>
     <% end %>
