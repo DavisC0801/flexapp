@@ -6,4 +6,9 @@ class Client < ApplicationRecord
   validates :email, uniqueness: true, presence: true
   validates_presence_of :first_name, :last_name, :password
   has_secure_password
+
+  def progress
+    p = (79.to_f/100)
+    p = (p * 100).round
+  end
 end
