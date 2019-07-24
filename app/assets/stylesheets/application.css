@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
-body {
+body{
   background-color: #CAEBF2;
   font-size: 28pt;
 }
@@ -29,8 +29,9 @@ body {
 .navbar-header{
   font-size: 28pt;
   font-weight: bold;
+}
 
-.card {
+.card{
   min-width: 250px;
   margin: 10px 10px 10px 10px;
 }

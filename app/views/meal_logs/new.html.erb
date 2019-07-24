@@ -1,13 +1,13 @@
-<% facade.meal_log.errors.full_messages.each do |msg| %>
+<div class="container">
+  <% facade.meal_log.errors.full_messages.each do |msg| %>
   <div class="alert alert-warning" role="alert">
     <%= msg %>
   </div>
-<% end %>
-<div class="container">
+  <% end %>
   <div class="client-heading">
     Search for a Meal
   </div>
-  <div class="col">
+  <div class="col-14">
     <div class="row justify-content-md-center">
       <%= form_tag :meal_searches, url: meal_searches_path, method: :post do %>
       <%= text_field_tag :meal_input %><br>

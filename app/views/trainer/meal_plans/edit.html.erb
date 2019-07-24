@@ -1,34 +1,91 @@
-<% @meal_plan.errors.full_messages.each do |msg| %>
-  <div class="alert alert-warning" role="alert">
-    <%= msg %>
+<div class="container">
+  <div class="col-14">
+    <% @meal_plan.errors.full_messages.each do |msg| %>
+      <div class="alert alert-warning" role="alert">
+        <%= msg %>
+      </div>
+    <% end %>
+    <div class="row">
+      <h1 class="client-heading">Editing <%= @client.first_name %> <%= @client.last_name %>'s Meal Plan</h1>
+    </div>
+    <br>
+    <%= form_for [@client.trainer, @client, @meal_plan], method: :patch do |f| %>
+    <div class="row">
+      <div class="col-3">
+        <%= f.label "Calories Per Meal" %>
+      </div>
+      <div class="col-3">
+        <%= f.number_field :calories %><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <%= f.label "Excluded Ingredients" %>
+      </div>
+      <div class="col-3">
+        <%= f.text_field :excluded %>
+      </div>
+    </div>
+    <div class="row">
+      <h4>Restrictions</h4>
+    </div>
+    <div class="row">
+      <p>Please Choose One of the following</p>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <%= f.check_box(:vegetarian, {}, "true", "false") %>
+      </div>
+      <div class="col-3">
+        <%= f.label(:vegetarian, "Vegetarian", value: true) %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <%= f.check_box(:vegan, {}, "true", "false") %>
+      </div>
+      <div class="col-3">
+        <%= f.label(:vegan, "Vegan", value: true) %>
+      </div>
+    </div>
+    <div class="row">
+      <h4>Choose Diet Type</h4>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <%= f.radio_button(:diet_type, 'high-protein') %>
+      </div>
+      <div class="col-3">
+        <%= f.label(:diet_type, "High Protein", value: 'high-protein') %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <%= f.radio_button(:diet_type, 'low-carb') %>
+      </div>
+      <div class="col-3">
+        <%= f.label(:diet_type, "Low Carb", value: 'low-carb') %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <%= f.radio_button(:diet_type, 'low-fat') %>
+      </div>
+      <div class="col-3">
+        <%= f.label(:diet_type, "Low Fat", value: 'low-fat') %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <%= f.radio_button(:diet_type, 'balanced') %>
+      </div>
+      <div class="col-3">
+        <%= f.label(:diet_type, "Balanced", value: 'balanced') %>
+      </div>
+    </div>
+    <div class="row">
+      <%= f.submit "Update Meal Plan", class: "btn-primary" %>
+    </div>
+    <% end %>
   </div>
-<% end %>
-<h1>Editing <%= @client.first_name %> <%= @client.last_name %>'s Meal Plan</h1>
-<%= form_for [@client.trainer, @client, @meal_plan], method: :patch do |f| %>
-
-  <%= f.label "Calories Per Meal" %>
-  <%= f.number_field :calories %><br>
-
-  <%= f.label "Exluded Ingredients" %>
-  <%= f.text_field :excluded %>
-
-  <h4>Restrictions</h4>
-  <p>Please Choose One of the following</p>
-  <%= f.radio_button(:vegetarian, true) %>
-  <%= f.label(:vegetarian, "Vegetarian", value: true) %>
-
-  <%= f.radio_button(:vegan, true) %>
-  <%= f.label(:vegan, "Vegan", value: true) %>
-
-  <h4>Choose Diet Type</h4>
-  <%= f.radio_button(:diet_type, 'high-protein') %>
-  <%= f.label(:diet_type, "High Protein", value: 'high-protein') %>
-
-  <%= f.radio_button(:diet_type, 'low-carb') %>
-  <%= f.label(:diet_type, "Low Carb", value: 'low-carb') %>
-
-  <%= f.radio_button(:diet_type, 'low-fat') %>
-  <%= f.label(:diet_type, "Low Fat", value: 'low-fat') %>
-
-  <%= f.submit "Update Meal Plan" %>
-<% end %>
+</div>

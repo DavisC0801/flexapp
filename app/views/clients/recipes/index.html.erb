@@ -1,15 +1,26 @@
-<h1>Suggested Meals</h1>
-<div class="card-group">
-  <% facade.recipes.each do |recipe| %>
-    <div class="card recipe">
-      <img class="card-img-top" src="<%= recipe.img %>" alt="<%= recipe.name %>-img">
-      <div class="card-body">
-        <h5 class="card-title name"><%= link_to recipe.name, recipe.url %></h5>
-        <p class="card-text calories">Calories Per Serving: <%= recipe.calories %></p>
-        <p class="card-text carbs">Carbs Per Serving: <%= recipe.carbs %></p>
-        <p class="card-text protein">Protein Per Serving: <%= recipe.protein %></p>
-        <p class="card-text servings">Serves: <%= recipe.servings %></p>
+<div class="container">
+  <div class="col-14">
+    <div class="row">
+      <h1 class="client-heading">Suggested Meals</h1>
+    </div>
+    <div class="card-group">
+      <div class="row">
+        <% facade.recipes.each do |recipe| %>
+          <div class="col-6">
+            <div class="card recipe">
+              <img class="card-img-top" src="<%= recipe.img %>" alt="<%= recipe.name %>-img">
+              <div class="card-body">
+                <h5 class="card-title name"><%= link_to recipe.name, recipe.url %></h5>
+                <p class="card-text calories">Calories Per Serving: <%= recipe.calories %></p>
+                <p class="card-text carbs">Carbs Per Serving: <%= recipe.carbs %></p>
+                <p class="card-text protein">Protein Per Serving: <%= recipe.protein %></p>
+                <p class="card-text servings">Serves: <%= recipe.servings %></p>
+              </div>
+            </div>
+          </div>
+          <br>
+        <% end %>
       </div>
     </div>
-  <% end %>
+  </div>
 </div>
