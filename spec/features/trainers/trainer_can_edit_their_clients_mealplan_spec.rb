@@ -18,7 +18,7 @@ RSpec.describe "As a registered Trainer" do
       click_button "Create Client's Meal Plan"
       fill_in 'meal_plan[calories]', with: '200'
       fill_in 'meal_plan[excluded]', with: 'nuts'
-      find(:css, '#meal_plan_vegetarian_true').click
+      find(:css, '#meal_plan_vegetarian').click
       find(:css, '#meal_plan_diet_type_low-carb').click
       click_button "Create Meal Plan"
 
@@ -46,7 +46,7 @@ RSpec.describe "As a registered Trainer" do
 
       fill_in 'meal_plan[calories]', with: '400'
       fill_in 'meal_plan[excluded]', with: ''
-      find(:css, '#meal_plan_vegetarian_true').click
+      find(:css, '#meal_plan_vegetarian').click
       find(:css, '#meal_plan_diet_type_high-protein').click
       click_button "Update Meal Plan"
 
@@ -69,8 +69,8 @@ RSpec.describe "As a registered Trainer" do
 
       fill_in 'meal_plan[calories]', with: '200'
       fill_in 'meal_plan[excluded]', with: 'nuts'
-      find(:css, '#meal_plan_vegetarian_true').click
-      find(:css, '#meal_plan_vegan_true').click
+      find(:css, '#meal_plan_vegetarian').click
+      find(:css, '#meal_plan_vegan').click
       find(:css, '#meal_plan_diet_type_low-carb').click
       click_button "Create Meal Plan"
 
@@ -92,8 +92,8 @@ RSpec.describe "As a registered Trainer" do
 
       fill_in 'meal_plan[calories]', with: ''
       fill_in 'meal_plan[excluded]', with: 'nuts'
-      find(:css, '#meal_plan_vegetarian_true').click
-      find(:css, '#meal_plan_vegan_true').click
+      find(:css, '#meal_plan_vegetarian').click
+      find(:css, '#meal_plan_vegan').click
       find(:css, '#meal_plan_diet_type_low-carb').click
       click_button "Create Meal Plan"
 
