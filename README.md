@@ -1,24 +1,45 @@
-# README
+# CalorieCoach
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## About the Application
 
-Things you may want to cover:
+This application is designed to be used as a nutrition tracker and communication tool between personal trainers and their clients.
 
-* Ruby version
+It is designed to have separate functionality for clients and trainers, and has the ability to send text and e-mail correspondence.
 
-* System dependencies
+This application was built using Rails 5, Bootstrap, PostgreSQL, TravisCI, OAuth and RSpec. The microservice is created using Python 3 and Flask, as well as the Nutritionix and Edamam API's. Communication features are implemented through Twilio and Sendgrid.
 
-* Configuration
+## Local Setup
 
-* Database creation
+Clone down the repo
+```
+$ git clone
+```
 
-* Database initialization
+Install the gem packages
+```
+$ bundle install
+```
 
-* How to run the test suite
+Set up the database
+```
+$ rake db:create
+$ rake db:migrate
+$ rake db:seed
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Run the test suite:
+```ruby
+$ bundle exec rspec
+```
 
-* Deployment instructions
+## Technologies
+* [TravisCI](https://travis-ci.org)
+* [Twilio](https://www.twilio.com/)
+* [Sendgrid](https://app.sendgrid.com/)
+* [RSpec](http://rspec.info/)
+* [vcr](https://github.com/vcr/vcr)
+* [Bootstrap](https://getbootstrap.com)
 
-* ...
+### Versions
+* Ruby 2.4.1
+* Rails 5.2.3

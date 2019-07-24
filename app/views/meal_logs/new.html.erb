@@ -8,18 +8,18 @@
     Search for a Meal
   </div>
   <div class="col-14">
-    <div class="row">
-      <%= form_tag :meal_searches, url: meal_searches_path, method: :post do %>
-      <%= text_field_tag :meal_input %><br>
-    </div>
-    <div class="meal-log-text">
-      Portion Size
-    </div>
-    <div class="row">
-        <%= submit_tag "Small", class: "btn-primary meal-btn" %>
-        <%= submit_tag "Medium", class: "btn-primary meal-btn" %>
-        <%= submit_tag "Large", class: "btn-primary meal-btn" %>
-      <% end %>
+    <div class="row centered">
+      <div class="col centered">
+        <%= form_tag :meal_searches, url: meal_searches_path, method: :post do %>
+          <%= text_field_tag :meal_input %><br>
+          <div class="meal-log-text">
+            Portion Size
+          </div>
+          <%= submit_tag "Small", class: "btn-primary meal-btn" %>
+          <%= submit_tag "Medium", class: "btn-primary meal-btn" %>
+          <%= submit_tag "Large", class: "btn-primary meal-btn" %>
+        <% end %>
+      </div>
     </div>
     <br>
     <div class="client-heading">
