@@ -6,10 +6,10 @@
     <br>
     <%= form_tag(trainer_invite_path, method: :post) do %>
     <div class="row">
-      <div class="col">
+      <div class="col-3">
         <%= label_tag(:email, "Client Email") %>
       </div>
-      <div class="col">
+      <div class="col-3">
         <%= text_field(:email, "Client Email") %>
       </div>
     </div>

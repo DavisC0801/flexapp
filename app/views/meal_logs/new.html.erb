@@ -8,7 +8,7 @@
     Search for a Meal
   </div>
   <div class="col-14">
-    <div class="row justify-content-md-center">
+    <div class="row">
       <%= form_tag :meal_searches, url: meal_searches_path, method: :post do %>
       <%= text_field_tag :meal_input %><br>
     </div>
@@ -27,74 +27,74 @@
     </div>
     <%= form_for facade.meal_log do |f| %>
     <div class="row">
-      <div class="col">
+      <div class="col-3">
         <%= f.label :name %>
       </div>
-      <div class="col">
+      <div class="col-3">
         <%= f.text_field :name  %><br>
       </div>
     </div>
     <div class="row">
-      <div class="col">
+      <div class="col-3">
         <%= f.label :meal_date %>
       </div>
-      <div class="col">
+      <div class="col-3">
         <%= f.date_field :meal_date  %><br>
       </div>
     </div>
     <div class="row">
-      <div class="col">
+      <div class="col-3">
         <%= f.label :meal_time %>
       </div>
-      <div class="col">
+      <div class="col-3">
         <%= f.time_field :meal_time %><br>
       </div>
     </div>
     <div class="row">
-      <div class="col">
+      <div class="col-3">
         <%= f.label :meal_calories %>
       </div>
-      <div class="col">
+      <div class="col-3">
         <%= f.number_field :meal_calories %><br>
       </div>
     </div>
     <div class="row">
-      <div class="col">
+      <div class="col-3">
         <%= f.label :meal_fats %>
       </div>
-      <div class="col">
+      <div class="col-3">
         <%= f.number_field :meal_fats %><br>
       </div>
     </div>
     <div class="row">
-      <div class="col">
+      <div class="col-3">
         <%= f.label :meal_carbs %>
       </div>
-      <div class="col">
+      <div class="col-3">
         <%= f.number_field :meal_carbs %><br>
       </div>
     </div>
     <div class="row">
-      <div class="col">
+      <div class="col-3">
         <%= f.label :meal_protein %>
       </div>
-      <div class="col">
+      <div class="col-3">
         <%= f.number_field :meal_protein %><br>
       </div>
     </div>
     <div class="row">
-      <div class="col">
+      <div class="col-3">
         <%= f.label :meal_sugars %>
       </div>
-      <div class="col">
+      <div class="col-3">
         <%= f.number_field :meal_sugars %><br>
       </div>
     </div>
     <div class="row">
-      <div class="col">
+      <div class="col-3">
         <%= f.label :meal_sodium %>
       </div>
-      <div class="col">
+      <div class="col-3">
         <%= f.number_field :meal_sodium %><br>
       </div>
     </div>
