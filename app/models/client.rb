@@ -11,4 +11,8 @@ class Client < ApplicationRecord
   def recent_meals(limit)
     meal_logs.limit(limit)
   end
+
+  def recent_weights(limit)
+    weight_logs.limit(limit)
+  end
 end
