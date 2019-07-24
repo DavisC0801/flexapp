@@ -34,20 +34,24 @@ class ClientDashboardFacade
   end
 
   def weight_amount
-
+    weight_logs.map do |log|
+      log.weight
+    end
   end
 
   def weight_date
-
+    weight_logs.map do |log|
+      log.created_at.to_date.month.to_s + "-" + log.created_at.to_date.day.to_s
+    end
   end
 
   private
 
   def weight_logs(limit=14)
-    @weight_logs ||= @client.weight_logs.take(limit)
+    @weight_logs ||= @client.recent_weights(limit)
   end
 
   def meals(limit=5)
-    @meals ||= @client.meal_logs.take(limit)
+    @meals ||= @client.recent_meals(limit)
   end
 end

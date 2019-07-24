@@ -16,6 +16,7 @@
       <div class="col">
         <h3>Weight Tracker</h3>
         <p>Track weight over time, log daily weight</p>
+        <h5 class='text-center'>Your weight in the last 2 weeks</h5>
         <canvas id="weight-graph" width="400" height="400"></canvas>
         <%= link_to "Log Weight", weight_logs_new_path, class: "btn-primary" %>
       </div>
@@ -28,6 +29,8 @@ let mealCarbs = <%= raw facade.meal_carbs %>;
 let mealFats = <%= raw facade.meal_fats %>;
 let mealSugars = <%= raw facade.meal_sugars %>;
 let mealProteins = <%= raw facade.meal_proteins %>;
+let weightDate = <%= raw facade.weight_date %>;
+let weightAmount = <%= raw facade.weight_amount %>;
 var mealGraph = document.getElementById('meal-graph');
 var weightGraph = document.getElementById('weight-graph');
 var mealGraph = new Chart(mealGraph, {
@@ -84,10 +87,10 @@ var mealGraph = new Chart(mealGraph, {
 var weightGraph = new Chart(weightGraph, {
     type: 'line',
     data: {
-      labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', '6', '6', '6', '6', '6', '6'],
+      labels: weightDate,
       datasets: [{
           label: 'Weight',
-          data: [180, 190, 210, 199, 180, 120],
+          data: weightAmount,
           backgroundColor: [
               'rgba(255, 159, 64, 0.2)'
           ],
