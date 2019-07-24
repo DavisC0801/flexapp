@@ -1,5 +1,8 @@
 <div class="container">
   <div class="col-14">
+    <div class="client-heading">
+      <%= current_trainer.first_name.capitalize %>'s Clients
+    </div>
     <div class="row">
       <p><%= link_to "Invite a new client to signup", trainer_invite_path, class: "btn-primary" %></p>
     </div>
