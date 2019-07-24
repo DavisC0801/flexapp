@@ -43,7 +43,6 @@ RSpec.describe "As a registered Trainer" do
       click_button "#{@client2.first_name} #{@client2.last_name}"
 
       click_button "Change Client's Meal Plan"
-      save_and_open_page
 
       fill_in 'meal_plan[calories]', with: '400'
       fill_in 'meal_plan[excluded]', with: ''
