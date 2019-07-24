@@ -8,8 +8,7 @@ class Client < ApplicationRecord
   has_secure_password
 
   def progress
-    p = (55.to_f/100)
+    p = (79.to_f/100)
     p = (p * 100).round
-    q = "#{p}%"
   end
 end
