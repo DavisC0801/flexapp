@@ -18,7 +18,7 @@ feature 'trainer client show page' do
     expect(current_path).to eq("/trainer/clients/#{@client.id}")
 
     expect(page).to have_content("#{@client.first_name} #{@client.last_name}")
-    expect(page).to have_button("Change Client's Meal Plan")
+    expect(page).to have_button("Create Client's Meal Plan")
 
     click_on "Back To Trainer's Client List"
     expect(current_path).to eq('/trainer/dashboard')

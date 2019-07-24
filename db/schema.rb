@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_21_203737) do
+ActiveRecord::Schema.define(version: 2019_07_22_222038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,18 @@ ActiveRecord::Schema.define(version: 2019_07_21_203737) do
     t.integer "meal_sodium"
   end
 
+  create_table "meal_plans", force: :cascade do |t|
+    t.integer "calories"
+    t.boolean "vegetarian", default: false
+    t.boolean "vegan", default: false
+    t.string "diet_type", default: "balanced"
+    t.string "excluded"
+    t.bigint "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_meal_plans_on_client_id"
+  end
+
   create_table "trainers", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -54,5 +66,6 @@ ActiveRecord::Schema.define(version: 2019_07_21_203737) do
   end
 
   add_foreign_key "clients", "trainers"
+  add_foreign_key "meal_plans", "clients"
   add_foreign_key "weight_logs", "clients"
 end

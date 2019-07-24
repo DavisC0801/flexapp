@@ -17,9 +17,15 @@ Rails.application.routes.draw do
     get '/invite', to: 'invite#new'
     post '/invite', to: 'invite#create'
     get '/dashboard', to: 'dashboard#show'
-    get '/clients/:id', to: 'clients#show', as: "client"
     get "register/:trainer", to: "clients#new", as: 'register'
     post "register/:trainer", to: "clients#create"
+    resources :clients, only: [:show] do
+      resources :meal_plans, only: [:new, :create, :edit, :update]
+    end
+  end
+
+  namespace :clients do
+    get '/recipes', to: 'recipes#index'
   end
 
 

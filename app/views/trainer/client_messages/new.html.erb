@@ -1,6 +1,22 @@
-Send a message to your client
-<%= form_tag trainer_client_messages_create_path(client: params[:client]) do %>
-  <%= label_tag :message %>
-  <%= text_area_tag :message %>
-  <%= submit_tag 'Send Message' %>
-<% end %>
+<div class="container">
+  <div class="col-14">
+    <div class="row">
+      <h1 class="client-heading">Send a message to your client</h1>
+    </div>
+    <br>
+    <div class="row">
+      <%= form_tag trainer_client_messages_create_path(client: params[:client]) do %>
+      <div class="col-3">
+        <%= label_tag :message %>
+      </div>
+      <div class="col">
+        <%= text_area_tag :message %>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <%= submit_tag 'Send Message', class: "btn-primary" %>
+    </div>
+    <% end %>
+  </div>
+</div>

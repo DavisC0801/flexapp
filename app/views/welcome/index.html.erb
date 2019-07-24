@@ -1,11 +1,32 @@
-<%= form_tag login_path, url: {action: 'create'} do %>
-  <%= label_tag :email %>
-  <%= text_field_tag :email %>
-
-  <%= label_tag :password %>
-  <%= text_field_tag :password %>
-
-  <%= submit_tag 'Log In' %>
-<% end %>
-<%= link_to "Register", register_path %>
-<%= link_to "About Us", about_path %>
+<div class="container">
+  <div class="col-14">
+    <br>
+    <%= form_tag login_path, url: {action: 'create'} do %>
+    <div class="row">
+      <div class="col-3">
+        <%= label_tag :email %>
+      </div>
+      <div class="col-3">
+        <%= text_field_tag :email %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <%= label_tag :password %>
+      </div>
+      <div class="col-3">
+        <%= text_field_tag :password %>
+      </div>
+    </div>
+    <div class="row">
+      <%= submit_tag 'Log In', class: "welcome btn-primary btn-xl" %>
+      <% end %>
+    </div>
+    <div class="row">
+      <%= link_to "Register", register_path, class: "welcome btn-primary btn-xl" %><br>
+    </div>
+    <div class="row">
+      <%= link_to "About Us", about_path, class: "welcome btn-primary btn-xl" %>
+    </div>
+  </div>
+</div>
