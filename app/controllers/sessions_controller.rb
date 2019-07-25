@@ -6,8 +6,8 @@ class SessionsController < ApplicationController
         session[:client_id] = client.id
         redirect_to client_dashboard_path
       else
-        flash[:failure] = "Incorrect Password"
-        redirect_to '/'
+        flash[:warning] = "Invalid Username/Password Combination!"
+        redirect_to root_path
       end
     elsif Trainer.find_by(email: params[:email])
       trainer = Trainer.find_by(email: params[:email])
@@ -15,8 +15,8 @@ class SessionsController < ApplicationController
         session[:trainer_id] = trainer.id
         redirect_to trainer_dashboard_path
       else
-        flash[:failure] = "Incorrect Password"
-        redirect_to '/'
+        flash[:warning] = "Invalid Username/Password Combination!"
+        redirect_to root_path
       end
     else
       flash[:failure] = 'Invalid Email'

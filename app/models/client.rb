@@ -15,4 +15,9 @@ class Client < ApplicationRecord
   def recent_weights(limit)
     weight_logs.limit(limit)
   end
+
+  def progress
+    p = (79.to_f/100)
+    p = (p * 100).round
+  end
 end

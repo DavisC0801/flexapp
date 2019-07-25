@@ -1,3 +1,4 @@
+
 alex = Trainer.create(first_name: "alex", last_name: "alexson", email: "alex@gmail.com", password: "password", phone_num: "5715943614")
 billy = Trainer.create(first_name: "billy", last_name: "billyson", email: "billy@gmail.com", password: "password", phone_num: "5715943614")
 

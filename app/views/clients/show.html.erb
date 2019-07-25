@@ -12,7 +12,14 @@
           <%= link_to "See Trainer Meal Suggestions", clients_recipes_path, class: "btn-primary" %>
         <% end %>
       </div>
-
+      <% if current_client && current_client.trainer && current_client.trainer.phone_num %>
+        <div class="col">
+          <%= link_to "Send Trainer Message", trainer_messages_new_path, class: "btn btn-large btn-primary" %>
+          <%= link_to "Send Trainer E-mail", client_mailers_new_path, class: "btn btn-large btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="row">
       <div class="col">
         <h3>Weight Tracker</h3>
         <p>Track weight over time, log daily weight</p>
