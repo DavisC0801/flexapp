@@ -51,7 +51,11 @@
             <%= f.label :trainer_email, "Trainer's Email" %>
           </div>
           <div class="col-4">
-            <%= text_field_tag :trainer_email %>
+            <% if trainer_email.nil? %>
+              <%= text_field_tag :trainer_email %>
+            <% else %>
+              <%= text_field_tag :trainer_email, trainer_email %>
+            <% end %>
           </div>
         </div>
       <% end %>
