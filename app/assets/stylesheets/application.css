@@ -17,7 +17,6 @@ body{
   background-color: #CAEBF2;
   font-size: 28pt;
 }
-
 .btn-primary{
   background-color: #FBA100;
 }
@@ -38,4 +37,26 @@ body{
 
 .col p{
   font-size: 20px;
+}
+
+.row p {
+  font-size: 20px;
+}
+
+.row div, .row h1 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.graphs {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#client-meal-plan {
+  border: 1px solid black;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5% 5% 5% 5%;
 }

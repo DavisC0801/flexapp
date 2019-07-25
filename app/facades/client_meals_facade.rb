@@ -46,6 +46,10 @@ class ClientMealsFacade
     end
   end
 
+  def meal_plan
+    @meal_plan ||= @client.meal_plan
+  end
+
   private
 
   def weight_logs(limit=14)
