@@ -58,81 +58,81 @@
   </div>
 </div>
 <script>
-let mealNames = <%= raw facade.meal_names %>;
-let mealCarbs = <%= raw facade.meal_carbs %>;
-let mealFats = <%= raw facade.meal_fats %>;
-let mealSugars = <%= raw facade.meal_sugars %>;
-let mealProteins = <%= raw facade.meal_proteins %>;
-let weightDate = <%= raw facade.weight_date %>;
-let weightAmount = <%= raw facade.weight_amount %>;
-var mealGraph = document.getElementById('meal-graph');
-var weightGraph = document.getElementById('weight-graph');
-var mealGraph = new Chart(mealGraph, {
-    type: 'line',
-    data: {
-        labels: mealNames,
-        datasets: [{
-            label: 'Carbs',
-            data: mealCarbs,
+  let mealDates = <%= raw facade.meal_dates %>;
+  let mealCarbs = <%= raw facade.meal_carbs %>;
+  let mealFats = <%= raw facade.meal_fats %>;
+  let mealSugars = <%= raw facade.meal_sugars %>;
+  let mealProteins = <%= raw facade.meal_proteins %>;
+  let weightDate = <%= raw facade.weight_date %>;
+  let weightAmount = <%= raw facade.weight_amount %>;
+  var mealGraph = document.getElementById('meal-graph');
+  var weightGraph = document.getElementById('weight-graph');
+  var mealGraph = new Chart(mealGraph, {
+      type: 'line',
+      data: {
+          labels: mealDates,
+          datasets: [{
+              label: 'Carbs',
+              data: mealCarbs,
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+              ],
+              borderColor: [
+                  'rgba(255, 99, 132, 1)',
+              ],
+              borderWidth: 1
+          },
+          {
+            label: 'Fats',
+            data: mealFats,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
             ],
             borderWidth: 1
-        },
-        {
-          label: 'Fats',
-          data: mealFats,
-          backgroundColor: [
-              'rgba(54, 162, 235, 0.2)',
-          ],
-          borderColor: [
-              'rgba(54, 162, 235, 1)',
-          ],
-          borderWidth: 1
-        },
-        {
-          label: 'Sugars',
-          data: mealSugars,
-          backgroundColor: [
-              'rgba(234, 120, 86, 0.2)',
-          ],
-          borderColor: [
-              'rgba(234, 120, 86, 1)',
-          ],
-          borderWidth: 1
-        },
-        {
-          label: 'Protein',
-          data: mealProteins,
-          backgroundColor: [
-              'rgba(75, 192, 192, 0.2)',
-          ],
-          borderColor: [
-              'rgba(75, 192, 192, 1)',
-          ],
-          borderWidth: 1
-        },
-      ]
-    },
-});
-var weightGraph = new Chart(weightGraph, {
-    type: 'line',
-    data: {
-      labels: weightDate,
-      datasets: [{
-          label: 'Weight',
-          data: weightAmount,
-          backgroundColor: [
-              'rgba(255, 159, 64, 0.2)'
-          ],
-          borderColor: [
-              'rgba(255, 159, 64, 1)'
-          ],
-          borderWidth: 1
-      }]
-    },
-});
+          },
+          {
+            label: 'Sugars',
+            data: mealSugars,
+            backgroundColor: [
+                'rgba(234, 120, 86, 0.2)',
+            ],
+            borderColor: [
+                'rgba(234, 120, 86, 1)',
+            ],
+            borderWidth: 1
+          },
+          {
+            label: 'Protein',
+            data: mealProteins,
+            backgroundColor: [
+                'rgba(75, 192, 192, 0.2)',
+            ],
+            borderColor: [
+                'rgba(75, 192, 192, 1)',
+            ],
+            borderWidth: 1
+          },
+        ]
+      },
+  });
+  var weightGraph = new Chart(weightGraph, {
+      type: 'line',
+      data: {
+        labels: weightDate,
+        datasets: [{
+            label: 'Weight',
+            data: weightAmount,
+            backgroundColor: [
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+      },
+  });
 </script>
