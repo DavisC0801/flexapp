@@ -1,6 +1,6 @@
 class MealLogsController < ApplicationController
   def new
-    render locals:{
+    render locals: {
       facade: MealLogNewFacade.new(meal_base_params)
     }
   end
@@ -11,7 +11,7 @@ class MealLogsController < ApplicationController
       flash[:message] = "#{meal.name.capitalize} has saved to your meal log"
       redirect_to client_dashboard_path
     else
-      render :new
+      redirect_to new_meal_logs_path
     end
   end
 
