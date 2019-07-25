@@ -4,7 +4,7 @@
       <div class="col">
         <h3>Meal Tracker</h3>
         <p>Track past meals, log new meals and see what recipes your trainer recommends if your trainer has assigned you a meal plan</p>
-        <h5 class='text-center'>Last 5 Meals</h5>
+        <h5 class='text-center'>Nutrients for the Week (grams)</h5>
         <canvas id="meal-graph" width="400" height="400"></canvas>
 
         <%= link_to "Log a Meal", new_meal_logs_path, class: "btn-primary" %><br>
@@ -31,7 +31,7 @@
   </div>
 </div>
 <script>
-let mealNames = <%= raw facade.meal_names %>;
+let mealDates = <%= raw facade.meal_dates %>;
 let mealCarbs = <%= raw facade.meal_carbs %>;
 let mealFats = <%= raw facade.meal_fats %>;
 let mealSugars = <%= raw facade.meal_sugars %>;
@@ -43,7 +43,7 @@ var weightGraph = document.getElementById('weight-graph');
 var mealGraph = new Chart(mealGraph, {
     type: 'line',
     data: {
-        labels: mealNames,
+        labels: mealDates,
         datasets: [{
             label: 'Carbs',
             data: mealCarbs,

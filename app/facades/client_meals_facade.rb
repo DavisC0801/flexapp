@@ -4,33 +4,33 @@ class ClientMealsFacade
     @client = client
   end
 
-  def meal_names
+  def meal_dates
     meals.map do |meal|
-      meal.name.capitalize
+      meal.meal_date.to_date.month.to_s + '-' + meal.meal_date.to_date.day.to_s
     end
   end
 
   def meal_carbs
     meals.map do |meal|
-      meal.meal_carbs
+      meal.total_carbs
     end
   end
 
   def meal_fats
     meals.map do |meal|
-      meal.meal_fats
+      meal.total_fats
     end
   end
 
   def meal_sugars
     meals.map do |meal|
-      meal.meal_sugars
+      meal.total_sugars
     end
   end
 
   def meal_proteins
     meals.map do |meal|
-      meal.meal_protein
+      meal.total_protein
     end
   end
 
@@ -56,7 +56,7 @@ class ClientMealsFacade
     @weight_logs ||= @client.recent_weights(limit).reverse
   end
 
-  def meals(limit=5)
-    @meals ||= @client.recent_meals(limit)
+  def meals
+    @meals ||= @client.meal_logs.meals_this_week
   end
 end
