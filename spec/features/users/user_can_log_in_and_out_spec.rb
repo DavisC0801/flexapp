@@ -50,7 +50,7 @@ RSpec.describe "sessions spec" do
       click_on 'Log In'
 
       expect(current_path).to eq('/')
-      expect(page).to have_content("Incorrect Password")
+      expect(page).to have_content("Invalid Username/Password Combination!")
     end
   end
 
