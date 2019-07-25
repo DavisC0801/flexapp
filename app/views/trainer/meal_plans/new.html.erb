@@ -9,7 +9,7 @@
       <h1 class="client-heading">Creating <%= @client.first_name %> <%= @client.last_name %>'s Meal Plan</h1>
     </div>
     <br>
-    <%= form_for [@client.trainer, @client, @meal_plan], method: :patch do |f| %>
+    <%= form_for [@client.trainer, @client, @meal_plan] do |f| %>
       <div class="col">
         <%= f.label "Calories Per Meal" %>
       </div>

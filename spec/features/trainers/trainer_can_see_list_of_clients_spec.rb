@@ -29,8 +29,4 @@ feature 'trainer show page' do
       end
     end
   end
-
-  xit 'trainer sees an intake goals percentage for the week for each client' do
-    # test
-  end
 end
