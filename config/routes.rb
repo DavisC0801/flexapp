@@ -39,8 +39,14 @@ Rails.application.routes.draw do
   get '/trainer_messages/new', to: 'clients/trainer_messages#new'
   post '/trainer_messages/create', to: 'clients/trainer_messages#create'
 
+  get '/client_mailers/new', to: 'clients/client_mailers#new'
+  post '/client_mailers/create', to: 'clients/client_mailers#create'
+
   get 'trainer/client_messages/new', to: 'trainer/client_messages#new'
   post 'trainer/client_messages/create', to: 'trainer/client_messages#create'
+
+  get '/trainer_mailers/new', to: 'trainer/trainer_mailers#new'
+  post '/trainer_mailers/create', to: 'trainer/trainer_mailers#create'
 
   get '/weight_logs/new', to: 'clients/weight_logs#new'
   post '/weight_logs/create', to: 'clients/weight_logs#create', as: 'weight_logs'
