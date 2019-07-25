@@ -7,8 +7,8 @@ RSpec.describe "email invitation" do
       client = create(:client)
       trainer.clients << client
       allow_any_instance_of(ApplicationController).to receive(:current_trainer).and_return(trainer)
-      visit trainer_dashboard_path
-      click_link "#{client.email}"
+      visit trainer_client_path(client)
+      click_link "Send Email to Client"
 
       expect(current_path).to eq("/trainer_mailers/new.#{client.id}")
 

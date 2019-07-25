@@ -11,6 +11,7 @@ class MealLogsController < ApplicationController
       flash[:message] = "#{meal.name.capitalize} has saved to your meal log"
       redirect_to client_dashboard_path
     else
+      flash[:error] = meal.errors.full_messages.first
       redirect_to new_meal_logs_path
     end
   end

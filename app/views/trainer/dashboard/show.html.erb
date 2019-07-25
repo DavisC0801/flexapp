@@ -10,7 +10,6 @@
         <div class="row">
           <div class="client-<%= client.id %>">
             <%= link_to "#{client.first_name} #{client.last_name}", trainer_client_path(client.id), method: :get, class: "btn btn-large btn-primary" %><br>
-            <%= link_to client.email, trainer_mailers_new_path(client) %>
             <!-- <div id="myProgress">
               <% if client.progress >= 90 %>
                 <div id="myBar" style="width: <%= client.progress %>%; background-color: #57BC90"></div>Progress over last 7 days

@@ -46,15 +46,17 @@
         <% end %>
       </div>
     </div>
-  </div>
-  <br>
-  <div class="row centered">
-    <div class="col">
-      <%= button_to "Send Message to Client", trainer_client_messages_new_path(client: facade.client), method: :get, class: "btn-primary" if facade.client.phone_num? %>
+    <br>
+    <div class="row">
+      <div class="col">
+        <%= button_to "Send Message to Client", trainer_client_messages_new_path(facade.client.id), method: :get, class: "btn btn-large btn-primary" if facade.client.phone_num? %>
+      </div>
+      <div class="col">
+        <%= link_to "Send Email to Client", trainer_mailers_new_path(facade.client.id), class: "btn btn-large btn-primary" %>
+      </div>
     </div>
-    <div class="col">
-      <%= button_to "Back To Trainer's Client List", trainer_dashboard_path, method: :get, class: "btn-primary" %>
-    </div>
+    <br>
+      <%= button_to "Back To Trainer's Client List", trainer_dashboard_path, method: :get, class: "btn btn-large btn-primary" %>
   </div>
 </div>
 <script>
