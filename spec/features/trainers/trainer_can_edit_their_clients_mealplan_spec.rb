@@ -21,7 +21,7 @@ RSpec.describe "As a registered Trainer" do
       find(:css, '#meal_plan_vegetarian').click
       find(:css, '#meal_plan_diet_type_low-carb').click
       click_button "Create Meal Plan"
-
+      
       expect(current_path).to eq(trainer_client_path(@client2))
       expect(page).to have_content("Successfully created meal plan for #{@client2.first_name} #{@client2.last_name}")
 
