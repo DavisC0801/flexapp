@@ -14,6 +14,7 @@
  *= require_self
  */
 
+
 #myProgress {
  width: 110%;
  background-color: lightblue;
@@ -27,6 +28,8 @@
 body{
   background-color: #CAEBF2;
   font-size: 28pt;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
 }
 
 .btn-primary{
