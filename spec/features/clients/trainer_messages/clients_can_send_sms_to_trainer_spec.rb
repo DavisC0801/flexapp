@@ -11,7 +11,7 @@ RSpec.describe 'as a registered client' do
 
         visit client_dashboard_path
 
-        click_link('Message Trainer')
+        click_link('Send Trainer Text')
 
         expect(current_path).to eq(trainer_messages_new_path)
 
@@ -29,7 +29,7 @@ RSpec.describe 'as a registered client' do
 
       visit client_dashboard_path
 
-      expect(page).to_not have_link('Send Trainer Message')
+      expect(page).to_not have_link('Send Trainer Text')
     end
 
     it "doesn't have a section for sending sms messages to trainer if trainer does not have number associated" do
@@ -40,7 +40,7 @@ RSpec.describe 'as a registered client' do
 
       visit client_dashboard_path
 
-      expect(page).to_not have_link('Send Trainer Message')
+      expect(page).to_not have_link('Send Trainer Text')
     end
   end
 end

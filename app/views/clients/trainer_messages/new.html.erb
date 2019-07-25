@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="col-14">
+  <div class="col-14 centered ml-auto mr-auto">
     <div class="row">
       <h1 class="client-heading">Message your Trainer</h1>
     </div>
@@ -8,8 +8,7 @@
       <h2>Consider using your name in the text message so your trainer knows who you are.</h2>
     </div>
     <br>
-    <div class="row">
-      <%= form_tag trainer_messages_create_path do %>
+    <%= form_tag trainer_messages_create_path do %>
       <div class="col">
         <%= label_tag :message %>
       </div>
@@ -18,7 +17,6 @@
       </div>
       <br>
       <%= submit_tag 'Send Message', class: "btn-primary" %>
-    </div>
     <% end %>
   </div>
 </div>

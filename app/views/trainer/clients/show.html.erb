@@ -1,58 +1,60 @@
 <div class="container">
-  <div class="col-14">
+  <div class="col-14 centered ml-auto mr-auto">
     <div class="row">
       <h1><%= facade.client.first_name.capitalize %> <%= facade.client.last_name.capitalize %>'s Information</h1>
     </div>
-  </div>
   <br>
   <div class="row">
-    <div class="column">
-      <h5 class='text-center'>Recent Meals</h5>
-      <canvas id="meal-graph" width="400" height="400"></canvas>
+    <div class="column centered ml-auto mr-auto">
+        <h5 class='text-center'>Recent Meals</h5>
+        <canvas id="meal-graph" width="400" height="400"></canvas>
+      </div>
+      <div class="column">
+        <h5 class='text-center'>Weight Log</h5>
+        <canvas id="weight-graph" width="400" height="400"></canvas>
+      </div>
     </div>
-    <div class="column">
-      <h5 class='text-center'>Weight Log</h5>
-      <canvas id="weight-graph" width="400" height="400"></canvas>
+    <br>
+    <div class="row">
+      <div class="column text-center" id='client-meal-plan'>
+        <% if !facade.client.meal_plan %>
+          <%= button_to "Create Client's Meal Plan", new_trainer_client_meal_plan_path(facade.client), method: :get, class: "btn-primary" %>
+        <% else %>
+          <h5><%= facade.client.first_name.capitalize %>'s Meal Plan</h5>
+          <div class="row">
+            <p>Calories Per Meal: <%= facade.meal_plan.calories %></p>
+          </div>
+          <div class="row">
+            <p>Vegetarian: <%= facade.meal_plan.vegetarian %></p>
+          </div>
+          <div class="row">
+            <p>Vegan: <%= facade.meal_plan.vegan %></p>
+          </div>
+          <div class="row">
+            <p>Diet Type: <%= facade.meal_plan.diet_type %></p>
+          </div>
+          <div class="row">
+            <p>Diet Type: <%= facade.meal_plan.diet_type %></p>
+          </div>
+          <div class="row">
+            <p>Excluded: <%= facade.meal_plan.excluded %></p>
+          </div>
+          <div class="row">
+            <p>Last Updated: <%= facade.meal_plan.created_at.to_date %></p>
+          </div>
+          <%= button_to "Change Client's Meal Plan", edit_trainer_client_meal_plan_path(facade.client), method: :get, class: "btn-primary" %>
+        <% end %>
+      </div>
     </div>
   </div>
   <br>
-  <div class="row">
-    <div class="column text-center" id='client-meal-plan'>
-      <% if !facade.client.meal_plan %>
-        <%= button_to "Create Client's Meal Plan", new_trainer_client_meal_plan_path(facade.client), method: :get, class: "btn-primary" %>
-      <% else %>
-        <h5><%= facade.client.first_name.capitalize %>'s Meal Plan</h5>
-        <div class="row">
-          <p>Calories Per Meal: <%= facade.meal_plan.calories %></p>
-        </div>
-        <div class="row">
-          <p>Vegetarian: <%= facade.meal_plan.vegetarian %></p>
-        </div>
-        <div class="row">
-          <p>Vegan: <%= facade.meal_plan.vegan %></p>
-        </div>
-        <div class="row">
-          <p>Diet Type: <%= facade.meal_plan.diet_type %></p>
-        </div>
-        <div class="row">
-          <p>Diet Type: <%= facade.meal_plan.diet_type %></p>
-        </div>
-        <div class="row">
-          <p>Excluded: <%= facade.meal_plan.excluded %></p>
-        </div>
-        <div class="row">
-          <p>Last Updated: <%= facade.meal_plan.created_at.to_date %></p>
-        </div>
-        <%= button_to "Change Client's Meal Plan", edit_trainer_client_meal_plan_path(facade.client), method: :get, class: "btn-primary" %>
-      <% end %>
+  <div class="row centered">
+    <div class="col">
+      <%= button_to "Send Message to Client", trainer_client_messages_new_path(client: facade.client), method: :get, class: "btn-primary" if facade.client.phone_num? %>
     </div>
-  </div>
-  <br>
-  <div class="row">
-    <%= button_to "Send Message to Client", trainer_client_messages_new_path(client: facade.client), method: :get, class: "btn-primary" if facade.client.phone_num? %>
-  </div>
-  <div class="row">
-    <%= button_to "Back To Trainer's Client List", trainer_dashboard_path, method: :get, class: "btn-primary" %>
+    <div class="col">
+      <%= button_to "Back To Trainer's Client List", trainer_dashboard_path, method: :get, class: "btn-primary" %>
+    </div>
   </div>
 </div>
 <script>

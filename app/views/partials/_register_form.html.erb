@@ -3,54 +3,54 @@
 </div>
 <br>
 <div class="container">
-  <div class="col-14 centered">
+  <div class="col-14 centered ml-auto mr-auto">
     <%= form_for user, url: form_submit_path do |f| %>
       <div class="row">
-        <div class="col-4">
+        <div class="col">
           <%= f.label :first_name, "First Name" %>
         </div>
-        <div class="col-4">
+        <div class="col">
           <%= f.text_field :first_name %>
         </div>
       </div>
       <div class="row">
-        <div class="col-4">
+        <div class="col">
           <%= f.label :last_name, "Last Name" %>
         </div>
-        <div class="col-4">
+        <div class="col">
           <%= f.text_field :last_name %>
         </div>
       </div>
       <div class="row">
-        <div class="col-4">
+        <div class="col">
           <%= f.label :email %>
         </div>
-        <div class="col-4">
+        <div class="col">
           <%= f.text_field :email %>
         </div>
       </div>
       <div class="row">
-        <div class="col-4">
+        <div class="col">
           <%= f.label :password %>
         </div>
-        <div class="col-4">
+        <div class="col">
           <%= f.password_field :password %>
         </div>
       </div>
       <div class="row">
-        <div class="col-4">
+        <div class="col">
           <%= f.label :password_confirmation, "Confirm your Password" %>
         </div>
-        <div class="col-4">
+        <div class="col">
           <%= f.password_field :password_confirmation %>
         </div>
       </div>
       <% if user_type == "client" %>
         <div class="row">
-          <div class="col-4">
+          <div class="col">
             <%= f.label :trainer_email, "Trainer's Email" %>
           </div>
-          <div class="col-4">
+          <div class="col">
             <% if trainer_email.nil? %>
               <%= text_field_tag :trainer_email %>
             <% else %>

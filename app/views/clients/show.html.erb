@@ -1,35 +1,48 @@
 <div class="container">
   <div class="col-14">
     <div class="row">
-      <div class="col">
+      <div class="col-6">
         <h3>Meal Tracker</h3>
         <p>Track past meals, log new meals and see what recipes your trainer recommends if your trainer has assigned you a meal plan</p>
         <h5 class='text-center'>Nutrients for the Week (grams)</h5>
         <canvas id="meal-graph" width="400" height="400"></canvas>
-
-        <%= link_to "Log a Meal", new_meal_logs_path, class: "btn-primary" %><br>
-        <% if current_client.meal_plan %>
-          <%= link_to "See Trainer Meal Suggestions", clients_recipes_path, class: "btn-primary" %>
-        <% end %>
       </div>
-      <% if current_client && current_client.trainer && current_client.trainer.phone_num %>
-        <div class="col">
-          <%= link_to "Send Trainer Message", trainer_messages_new_path, class: "btn btn-large btn-primary" %>
-          <%= link_to "Send Trainer E-mail", client_mailers_new_path, class: "btn btn-large btn-primary" %>
-        </div>
-      <% end %>
-    </div>
-    <div class="row">
-      <div class="col">
+      <div class="col-6">
         <h3>Weight Tracker</h3>
         <p>Track weight over time, log daily weight</p>
         <h5 class='text-center'>Your weight in the last 2 weeks</h5>
         <canvas id="weight-graph" width="400" height="400"></canvas>
-        <%= link_to "Log Weight", weight_logs_new_path, class: "btn-primary" %>
+        </div>
       </div>
+      <div class="row">
+        <div class="col">
+          <%= link_to "Log a Meal", new_meal_logs_path, class: "btn btn-large btn-primary" %><br>
+        </div>
+        <div class="col">
+          <%= link_to "Log Weight", weight_logs_new_path, class: "btn btn-large btn-primary" %>
+        </div>
+        <% if current_client.meal_plan %>
+          <div class="col">
+            <%= link_to "See Recipe Suggestions", clients_recipes_path, class: "btn btn-large btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+      <br>
+      <div class="row">
+        <% if current_client && current_client.trainer && current_client.trainer.email %>
+          <div class="col">
+            <%= link_to "Send Trainer E-mail", client_mailers_new_path, class: "btn btn-large btn-primary" %>
+          </div>
+        <% end %>
+        <% if current_client && current_client.trainer && current_client.trainer.phone_num %>
+          <div class="col">
+            <%= link_to "Send Trainer Text", trainer_messages_new_path, class: "btn btn-large btn-primary" %>
+          </div>
+        <% end %>
     </div>
   </div>
 </div>
+
 <script>
 let mealDates = <%= raw facade.meal_dates %>;
 let mealCarbs = <%= raw facade.meal_carbs %>;
