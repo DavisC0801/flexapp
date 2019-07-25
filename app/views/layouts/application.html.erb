@@ -29,6 +29,9 @@
           <li class="nav-item">
             <%= link_to "Profile", client_dashboard_path, class: "nav-link" %>
           </li>
+          <li class="nav-item">
+            <%= link_to "Message Trainer", trainer_messages_new_path, class: "nav-link" %>
+          </li>
           <% elsif current_trainer %>
           <li class="nav-item">
             <%= link_to "Profile", trainer_dashboard_path, class: "nav-link" %>
