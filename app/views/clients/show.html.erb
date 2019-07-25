@@ -29,12 +29,12 @@
       </div>
       <br>
       <div class="row">
-        <% if current_client.trainer.email %>
+        <% if current_client && current_client.trainer && current_client.trainer.email %>
           <div class="col">
             <%= link_to "Send Trainer E-mail", client_mailers_new_path, class: "btn btn-large btn-primary" %>
           </div>
         <% end %>
-        <% if current_client.trainer.phone_num %>
+        <% if current_client && current_client.trainer && current_client.trainer.phone_num %>
           <div class="col">
             <%= link_to "Send Trainer Text", trainer_messages_new_path, class: "btn btn-large btn-primary" %>
           </div>
