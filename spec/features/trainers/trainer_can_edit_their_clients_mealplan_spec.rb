@@ -13,7 +13,7 @@ RSpec.describe "As a registered Trainer" do
     it "allows me to create a clients meal plan" do
       visit trainer_dashboard_path
 
-      click_button "#{@client2.first_name} #{@client2.last_name}"
+      click_on "#{@client2.first_name} #{@client2.last_name}"
 
       click_button "Create Client's Meal Plan"
       fill_in 'meal_plan[calories]', with: '200'
@@ -40,7 +40,7 @@ RSpec.describe "As a registered Trainer" do
 
       visit trainer_dashboard_path
 
-      click_button "#{@client2.first_name} #{@client2.last_name}"
+      click_on "#{@client2.first_name} #{@client2.last_name}"
 
       click_button "Change Client's Meal Plan"
 
@@ -63,7 +63,7 @@ RSpec.describe "As a registered Trainer" do
     it "defaults to vegan if both vegetarian and vegan are chosen" do
       visit trainer_dashboard_path
 
-      click_button "#{@client2.first_name} #{@client2.last_name}"
+      click_on "#{@client2.first_name} #{@client2.last_name}"
 
       click_button "Create Client's Meal Plan"
 
@@ -86,7 +86,7 @@ RSpec.describe "As a registered Trainer" do
     it "requires calories per day" do
       visit trainer_dashboard_path
 
-      click_button "#{@client2.first_name} #{@client2.last_name}"
+      click_on "#{@client2.first_name} #{@client2.last_name}"
 
       click_button "Create Client's Meal Plan"
 

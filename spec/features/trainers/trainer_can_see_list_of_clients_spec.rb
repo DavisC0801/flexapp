@@ -16,15 +16,15 @@ feature 'trainer show page' do
 
     within('#clients') do
       within(".client-#{@client1.id}") do
-        expect(page).to have_button("#{@client1.first_name} #{@client1.last_name}")
+        expect(page).to have_link("#{@client1.first_name} #{@client1.last_name}")
         expect(page).to have_link("#{@client1.email}")
       end
       within(".client-#{@client2.id}") do
-        expect(page).to have_button("#{@client2.first_name} #{@client2.last_name}")
+        expect(page).to have_link("#{@client2.first_name} #{@client2.last_name}")
         expect(page).to have_link("#{@client2.email}")
       end
       within(".client-#{@client3.id}") do
-        expect(page).to have_button("#{@client3.first_name} #{@client3.last_name}")
+        expect(page).to have_link("#{@client3.first_name} #{@client3.last_name}")
         expect(page).to have_link("#{@client3.email}")
       end
     end
