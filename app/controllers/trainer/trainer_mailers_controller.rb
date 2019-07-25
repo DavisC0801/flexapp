@@ -6,8 +6,13 @@ class Trainer::TrainerMailersController < Trainer::BaseController
   def create
     body = params[:email]
     client = Client.find(params[:client])
-    TrainerMailer.trainermessage(body, current_trainer, client).deliver_now
-    flash[:success] = "Email Sent!"
-    redirect_to trainer_dashboard_path
+    if body.nil? || body.empty?
+      flash[:error] = "Email Cannot be Blank. Please Try Again."
+      redirect_to trainer_mailers_new_path
+    else
+      TrainerMailer.trainermessage(body, current_trainer, client).deliver_now
+      flash[:success] = "Email Sent!"
+      redirect_to trainer_dashboard_path
+    end
   end
 end
