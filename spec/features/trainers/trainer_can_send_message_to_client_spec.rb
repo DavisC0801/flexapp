@@ -20,7 +20,7 @@ feature 'trainer client show page' do
       expect(page).to have_button("Send Message to Client")
       click_button "Send Message to Client"
 
-      expect(current_path).to eq('/trainer/client_messages/new')
+      expect(current_path).to eq("/trainer/client_messages/new.#{@client.id}")
 
       fill_in "Message", with: "HELLO #{@client.first_name}, LETS GET FIT!!!"
       click_button 'Send Message'

@@ -8,7 +8,7 @@ class Trainer::TrainerMailersController < Trainer::BaseController
     client = Client.find(params[:client])
     if body.nil? || body.empty?
       flash[:error] = "Email Cannot be Blank. Please Try Again."
-      redirect_to trainer_mailers_new_path
+      redirect_to trainer_mailers_new_path(client)
     else
       TrainerMailer.trainermessage(body, current_trainer, client).deliver_now
       flash[:success] = "Email Sent!"
