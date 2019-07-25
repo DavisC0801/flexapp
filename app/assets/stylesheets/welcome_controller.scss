@@ -4,7 +4,7 @@
 }
 
 .btn-xl {
-  width: 70%;
+  width: 85%;
   height: 20%;
   margin-top: 10%;
   font-size: 60pt;
@@ -29,4 +29,19 @@
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+}
+
+.google_button{
+  background: url("https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.colorpsychology.org%2Fwp-content%2Fuploads%2F2017%2F04%2Fgoogle-logo.png&f=1");
+  background-position: left;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-color: #fefeff;
+  width: 85%;
+  height: 25%;
+  margin-top: 10%;
+  padding-left: 9%;
+  padding-right: 2%;
+  font-size: 60pt;
+  text-align: right;
 }

@@ -20,6 +20,9 @@ body{
 .btn-primary{
   background-color: #FBA100;
 }
+.btn-large{
+  font-size: 28pt;
+}
 
 .centered{
   text-align: center;
