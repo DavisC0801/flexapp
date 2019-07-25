@@ -2,7 +2,15 @@
   <div class="col-14">
     <div class="row">
       <div class="col">
-        <%= link_to "Log a Meal", new_meal_logs_path, class: "btn btn-large btn-primary" %>
+        <h3>Meal Tracker</h3>
+        <p>Track past meals, log new meals and see what recipes your trainer recommends if your trainer has assigned you a meal plan</p>
+        <h5 class='text-center'>Last 5 Meals</h5>
+        <canvas id="meal-graph" width="400" height="400"></canvas>
+
+        <%= link_to "Log a Meal", new_meal_logs_path, class: "btn-primary" %><br>
+        <% if current_client.meal_plan %>
+          <%= link_to "See Trainer Meal Suggestions", clients_recipes_path, class: "btn-primary" %>
+        <% end %>
       </div>
       <% if current_client && current_client.trainer && current_client.trainer.phone_num %>
         <div class="col">
@@ -13,14 +21,91 @@
     </div>
     <div class="row">
       <div class="col">
-        <%= link_to "Log Weight", weight_logs_new_path, class: "btn btn-large btn-primary" %>
-      </div>
-      <% if current_client.meal_plan %>
-        <div class="col">
-          <%= link_to "See Trainer Meal Suggestions", clients_recipes_path %>
-        </div>
-      <% end %>
+        <h3>Weight Tracker</h3>
+        <p>Track weight over time, log daily weight</p>
+        <h5 class='text-center'>Your weight in the last 2 weeks</h5>
+        <canvas id="weight-graph" width="400" height="400"></canvas>
+        <%= link_to "Log Weight", weight_logs_new_path, class: "btn-primary" %>
       </div>
     </div>
   </div>
 </div>
+<script>
+let mealNames = <%= raw facade.meal_names %>;
+let mealCarbs = <%= raw facade.meal_carbs %>;
+let mealFats = <%= raw facade.meal_fats %>;
+let mealSugars = <%= raw facade.meal_sugars %>;
+let mealProteins = <%= raw facade.meal_proteins %>;
+let weightDate = <%= raw facade.weight_date %>;
+let weightAmount = <%= raw facade.weight_amount %>;
+var mealGraph = document.getElementById('meal-graph');
+var weightGraph = document.getElementById('weight-graph');
+var mealGraph = new Chart(mealGraph, {
+    type: 'line',
+    data: {
+        labels: mealNames,
+        datasets: [{
+            label: 'Carbs',
+            data: mealCarbs,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+            ],
+            borderWidth: 1
+        },
+        {
+          label: 'Fats',
+          data: mealFats,
+          backgroundColor: [
+              'rgba(54, 162, 235, 0.2)',
+          ],
+          borderColor: [
+              'rgba(54, 162, 235, 1)',
+          ],
+          borderWidth: 1
+        },
+        {
+          label: 'Sugars',
+          data: mealSugars,
+          backgroundColor: [
+              'rgba(234, 120, 86, 0.2)',
+          ],
+          borderColor: [
+              'rgba(234, 120, 86, 1)',
+          ],
+          borderWidth: 1
+        },
+        {
+          label: 'Protein',
+          data: mealProteins,
+          backgroundColor: [
+              'rgba(75, 192, 192, 0.2)',
+          ],
+          borderColor: [
+              'rgba(75, 192, 192, 1)',
+          ],
+          borderWidth: 1
+        },
+      ]
+    },
+});
+var weightGraph = new Chart(weightGraph, {
+    type: 'line',
+    data: {
+      labels: weightDate,
+      datasets: [{
+          label: 'Weight',
+          data: weightAmount,
+          backgroundColor: [
+              'rgba(255, 159, 64, 0.2)'
+          ],
+          borderColor: [
+              'rgba(255, 159, 64, 1)'
+          ],
+          borderWidth: 1
+      }]
+    },
+});
+</script>

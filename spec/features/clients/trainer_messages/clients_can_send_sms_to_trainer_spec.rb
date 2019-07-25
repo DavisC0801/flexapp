@@ -11,7 +11,7 @@ RSpec.describe 'as a registered client' do
 
         visit client_dashboard_path
 
-        click_link('Send Trainer Message')
+        click_link('Message Trainer')
 
         expect(current_path).to eq(trainer_messages_new_path)
 

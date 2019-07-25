@@ -1,6 +1,9 @@
 class Trainer::ClientsController < ApplicationController
   def show
-    @client = Client.find(params[:id])
+    client = current_trainer.clients.find(params[:id])
+    render locals: {
+      facade: ClientMealsFacade.new(client)
+    }
   end
 
   def new

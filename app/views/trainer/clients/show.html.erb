@@ -1,21 +1,136 @@
 <div class="container">
   <div class="col-14">
     <div class="row">
-      <h1><%= @client.first_name %> <%= @client.last_name %>'s Information</h1>
+      <h1><%= facade.client.first_name.capitalize %> <%= facade.client.last_name.capitalize %>'s Information</h1>
     </div>
   </div>
-  Calories, Carbs, Sugar, etc. Stat Graphs here
+  <br>
   <div class="row">
-    <% if !@client.meal_plan %>
-      <%= button_to "Create Client's Meal Plan", new_trainer_client_meal_plan_path(@client), method: :get, class: "btn-primary" %>
-    <% else %>
-      <%= button_to "Change Client's Meal Plan", edit_trainer_client_meal_plan_path(@client), method: :get, class: "btn-primary" %>
-    <% end %>
-   </div>
+    <div class="column">
+      <h5 class='text-center'>Recent Meals</h5>
+      <canvas id="meal-graph" width="400" height="400"></canvas>
+    </div>
+    <div class="column">
+      <h5 class='text-center'>Weight Log</h5>
+      <canvas id="weight-graph" width="400" height="400"></canvas>
+    </div>
+  </div>
+  <br>
   <div class="row">
-    <%= button_to "Send Message to Client", trainer_client_messages_new_path(client: @client), method: :get, class: "btn-primary" if @client.phone_num? %>
+    <div class="column text-center" id='client-meal-plan'>
+      <% if !facade.client.meal_plan %>
+        <%= button_to "Create Client's Meal Plan", new_trainer_client_meal_plan_path(facade.client), method: :get, class: "btn-primary" %>
+      <% else %>
+        <h5><%= facade.client.first_name.capitalize %>'s Meal Plan</h5>
+        <div class="row">
+          <p>Calories Per Meal: <%= facade.meal_plan.calories %></p>
+        </div>
+        <div class="row">
+          <p>Vegetarian: <%= facade.meal_plan.vegetarian %></p>
+        </div>
+        <div class="row">
+          <p>Vegan: <%= facade.meal_plan.vegan %></p>
+        </div>
+        <div class="row">
+          <p>Diet Type: <%= facade.meal_plan.diet_type %></p>
+        </div>
+        <div class="row">
+          <p>Diet Type: <%= facade.meal_plan.diet_type %></p>
+        </div>
+        <div class="row">
+          <p>Excluded: <%= facade.meal_plan.excluded %></p>
+        </div>
+        <div class="row">
+          <p>Last Updated: <%= facade.meal_plan.created_at.to_date %></p>
+        </div>
+        <%= button_to "Change Client's Meal Plan", edit_trainer_client_meal_plan_path(facade.client), method: :get, class: "btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <%= button_to "Send Message to Client", trainer_client_messages_new_path(client: facade.client), method: :get, class: "btn-primary" if facade.client.phone_num? %>
   </div>
   <div class="row">
     <%= button_to "Back To Trainer's Client List", trainer_dashboard_path, method: :get, class: "btn-primary" %>
   </div>
 </div>
+<script>
+let mealNames = <%= raw facade.meal_names %>;
+let mealCarbs = <%= raw facade.meal_carbs %>;
+let mealFats = <%= raw facade.meal_fats %>;
+let mealSugars = <%= raw facade.meal_sugars %>;
+let mealProteins = <%= raw facade.meal_proteins %>;
+let weightDate = <%= raw facade.weight_date %>;
+let weightAmount = <%= raw facade.weight_amount %>;
+var mealGraph = document.getElementById('meal-graph');
+var weightGraph = document.getElementById('weight-graph');
+var mealGraph = new Chart(mealGraph, {
+    type: 'line',
+    data: {
+        labels: mealNames,
+        datasets: [{
+            label: 'Carbs',
+            data: mealCarbs,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+            ],
+            borderWidth: 1
+        },
+        {
+          label: 'Fats',
+          data: mealFats,
+          backgroundColor: [
+              'rgba(54, 162, 235, 0.2)',
+          ],
+          borderColor: [
+              'rgba(54, 162, 235, 1)',
+          ],
+          borderWidth: 1
+        },
+        {
+          label: 'Sugars',
+          data: mealSugars,
+          backgroundColor: [
+              'rgba(234, 120, 86, 0.2)',
+          ],
+          borderColor: [
+              'rgba(234, 120, 86, 1)',
+          ],
+          borderWidth: 1
+        },
+        {
+          label: 'Protein',
+          data: mealProteins,
+          backgroundColor: [
+              'rgba(75, 192, 192, 0.2)',
+          ],
+          borderColor: [
+              'rgba(75, 192, 192, 1)',
+          ],
+          borderWidth: 1
+        },
+      ]
+    },
+});
+var weightGraph = new Chart(weightGraph, {
+    type: 'line',
+    data: {
+      labels: weightDate,
+      datasets: [{
+          label: 'Weight',
+          data: weightAmount,
+          backgroundColor: [
+              'rgba(255, 159, 64, 0.2)'
+          ],
+          borderColor: [
+              'rgba(255, 159, 64, 1)'
+          ],
+          borderWidth: 1
+      }]
+    },
+});
+</script>
