@@ -19,7 +19,21 @@
 
     <% if !@hide_nav %>
       <section class="navbar navbar-expand-md navbar-dark bg-dark">
-        <span class="navbar-brand mr-auto navbar-header"><img src="https://i.imgur.com/pcoR7wb.png" alt="hello" width="350"/></span>
+        <% if !current_user %>
+          <a class="mr-auto" href=<%= root_path %>>
+            <span class="navbar-brand mr-auto navbar-header"><img src="https://i.imgur.com/pcoR7wb.png" alt="hello" width="350"/></span>
+          </a>
+        <% end %>
+        <% if current_client %>
+          <a class="mr-auto" href=<%= client_dashboard_path %>>
+            <span class="navbar-brand mr-auto navbar-header"><img src="https://i.imgur.com/pcoR7wb.png" alt="hello" width="350"/></span>
+          </a>
+        <% end %>
+        <% if current_trainer %>
+          <a class="mr-auto" href=<%= trainer_dashboard_path %>>
+            <span class="navbar-brand mr-auto navbar-header"><img src="https://i.imgur.com/pcoR7wb.png" alt="hello" width="350"/></span>
+          </a>
+        <% end %>
         <ul class="navbar-nav">
           <% if current_user %>
           <li class="nav-item">
@@ -29,9 +43,6 @@
           <% if current_client %>
           <li class="nav-item">
             <%= link_to "Profile", client_dashboard_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Message Trainer", trainer_messages_new_path, class: "nav-link" %>
           </li>
           <% elsif current_trainer %>
           <li class="nav-item">

@@ -1,13 +1,12 @@
 <div class="container">
-  <div class="col-14">
+  <div class="col-14 centered ml-auto mr-auto">
     <div class="row">
       <h1 class="client-heading">Send an e-mail to your client:</h1>
     </div>
-    <div class="row">
-      <h2>Sending to: <%= @client.first_name.capitalize %> <%= @client.last_name.capitalize %></h2>
+    <div class="row centered ml-auto mr-auto">
+      <h2 class="centered ml-auto mr-auto">Sending to: <%= @client.first_name.capitalize %> <%= @client.last_name.capitalize %></h2>
     </div>
     <br>
-    <div class="row">
       <%= form_tag trainer_mailers_create_path(client: @client) do %>
       <div class="col">
         <%= label_tag :email %>
@@ -17,7 +16,6 @@
       </div>
       <br>
       <%= submit_tag 'Send Email', class: "btn-primary" %>
-    </div>
     <% end %>
   </div>
 </div>

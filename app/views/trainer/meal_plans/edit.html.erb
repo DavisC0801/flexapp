@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="col-14">
+  <div class="col-14 centered ml-auto mr-auto">
     <% @meal_plan.errors.full_messages.each do |msg| %>
       <div class="alert alert-warning" role="alert">
         <%= msg %>
@@ -10,82 +10,54 @@
     </div>
     <br>
     <%= form_for [@client.trainer, @client, @meal_plan], method: :patch do |f| %>
-    <div class="row">
-      <div class="col-3">
+      <div class="col">
         <%= f.label "Calories Per Meal" %>
       </div>
-      <div class="col-3">
+      <div class="col">
         <%= f.number_field :calories %><br>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-3">
+      <div class="col">
         <%= f.label "Excluded Ingredients" %>
       </div>
-      <div class="col-3">
+      <div class="col">
         <%= f.text_field :excluded %>
       </div>
-    </div>
-    <div class="row">
-      <h4>Restrictions</h4>
-    </div>
-    <div class="row">
-      <p>Please Choose One of the following</p>
-    </div>
-    <div class="row">
-      <div class="col-3">
-        <%= f.check_box(:vegetarian, {}, "true", "false") %>
+      <br>
+      <p>Restrictions</p>
+      <h4>Please Choose One of the Following if Requested by Client:</h4>
+      <div class="row">
+        <div class="col">
+          <%= f.check_box(:vegetarian, {}, "true", "false") %>
+          <%= f.label(:vegetarian, "Vegetarian", value: true) %>
+        </div>
+        <div class="col">
+          <%= f.check_box(:vegan, {}, "true", "false") %>
+          <%= f.label(:vegan, "Vegan", value: true) %>
+        </div>
       </div>
-      <div class="col-3">
-        <%= f.label(:vegetarian, "Vegetarian", value: true) %>
+      <br>
+      <p>Choose Diet Type</p>
+      <div class="row centered mr-auto ml-auto">
+        <div class="col">
+          <%= f.radio_button(:diet_type, 'high-protein') %>
+          <%= f.label(:diet_type, "High Protein", value: 'high-protein') %>
+        </div>
+        <div class="col">
+          <%= f.radio_button(:diet_type, 'low-carb') %>
+          <%= f.label(:diet_type, "Low Carb", value: 'low-carb') %>
+        </div>
+        <div class="col">
+          <%= f.radio_button(:diet_type, 'low-fat') %>
+          <%= f.label(:diet_type, "Low Fat", value: 'low-fat') %>
+        </div>
+        <div class="col">
+          <%= f.radio_button(:diet_type, 'balanced') %>
+          <%= f.label(:diet_type, "Balanced", value: 'balanced') %>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-3">
-        <%= f.check_box(:vegan, {}, "true", "false") %>
-      </div>
-      <div class="col-3">
-        <%= f.label(:vegan, "Vegan", value: true) %>
-      </div>
-    </div>
-    <div class="row">
-      <h4>Choose Diet Type</h4>
-    </div>
-    <div class="row">
-      <div class="col-3">
-        <%= f.radio_button(:diet_type, 'high-protein') %>
-      </div>
-      <div class="col-3">
-        <%= f.label(:diet_type, "High Protein", value: 'high-protein') %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-3">
-        <%= f.radio_button(:diet_type, 'low-carb') %>
-      </div>
-      <div class="col-3">
-        <%= f.label(:diet_type, "Low Carb", value: 'low-carb') %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-3">
-        <%= f.radio_button(:diet_type, 'low-fat') %>
-      </div>
-      <div class="col-3">
-        <%= f.label(:diet_type, "Low Fat", value: 'low-fat') %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-3">
-        <%= f.radio_button(:diet_type, 'balanced') %>
-      </div>
-      <div class="col-3">
-        <%= f.label(:diet_type, "Balanced", value: 'balanced') %>
-      </div>
-    </div>
-    <div class="row">
+      <br>
       <%= f.submit "Update Meal Plan", class: "btn-primary" %>
     </div>
-    <% end %>
+  <% end %>
   </div>
 </div>

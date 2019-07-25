@@ -3,18 +3,18 @@
     <img src="https://i.imgur.com/ghBMXBq.png", alt="Calorie Coach"/>
     <%= form_tag login_path, url: {action: 'create'} do %>
     <div class="row">
-      <div class="col-3">
+      <div class="col">
         <%= label_tag :email %>
       </div>
-      <div class="col-3">
+      <div class="col">
         <%= text_field_tag :email %>
       </div>
     </div>
     <div class="row">
-      <div class="col-3">
+      <div class="col">
         <%= label_tag :password %>
       </div>
-      <div class="col-3">
+      <div class="col">
         <%= password_field_tag :password %>
       </div>
     </div>

@@ -1,21 +1,18 @@
 <div class="container">
-  <div class="col-14 centered">
+  <div class="col-14 centered ml-auto mr-auto">
     <div class="row">
       <h1>Enter the client's E-mail address</h1>
     </div>
     <br>
     <%= form_tag(trainer_invite_path, method: :post) do %>
-    <div class="row">
-      <div class="col-3">
+      <div class="col">
         <%= label_tag(:email, "Client Email") %>
       </div>
-      <div class="col-3">
+      <div class="col">
         <%= text_field(:email, "Client Email") %>
       </div>
-    </div>
-    <div class="row">
+      <br>
       <%= submit_tag("Invite", class: "btn-primary") %>
-    </div>
-  <% end %>
+    <% end %>
   </div>
 </div>

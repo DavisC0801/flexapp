@@ -10,7 +10,7 @@
     </div>
     <br>
     <%= form_for @log do |f| %>
-      <div class="row">
+      <div class="row centered">
         <div class="col">
           <%= f.label :weight %>
         </div>
@@ -19,8 +19,8 @@
         </div>
       </div>
       <br>
-      <div class="row">
-        <%= f.submit "Log Weight", class: "btn-primary" %>
+      <div class="row centered">
+        <%= f.submit "Log Weight", class: "btn-primary mr-auto ml-auto" %>
       </div>
     <% end %>
   </div>
