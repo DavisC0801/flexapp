@@ -17,8 +17,8 @@ feature 'trainer client show page' do
       click_on "#{@client.first_name} #{@client.last_name}"
       expect(current_path).to eq("/trainer/clients/#{@client.id}")
 
-      expect(page).to have_button("Send Message to Client")
-      click_button "Send Message to Client"
+      expect(page).to have_link("Send Text to Client")
+      click_link "Send Text to Client"
 
       expect(current_path).to eq("/trainer/client_messages/new.#{@client.id}")
 
@@ -38,7 +38,5 @@ feature 'trainer client show page' do
 
     click_on "#{@client_no_phone_num.first_name} #{@client_no_phone_num.last_name}"
     expect(current_path).to eq("/trainer/clients/#{@client_no_phone_num.id}")
-
-    expect(page).to_not have_button("Send Message to Client")
   end
 end

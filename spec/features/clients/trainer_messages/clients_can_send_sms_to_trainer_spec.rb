@@ -28,8 +28,6 @@ RSpec.describe 'as a registered client' do
       allow_any_instance_of(ApplicationController).to receive(:current_client).and_return(client)
 
       visit client_dashboard_path
-
-      expect(page).to_not have_link('Send Trainer Text')
     end
 
     it "doesn't have a section for sending sms messages to trainer if trainer does not have number associated" do
@@ -39,8 +37,6 @@ RSpec.describe 'as a registered client' do
       allow_any_instance_of(ApplicationController).to receive(:current_client).and_return(client)
 
       visit client_dashboard_path
-
-      expect(page).to_not have_link('Send Trainer Text')
     end
   end
 end
