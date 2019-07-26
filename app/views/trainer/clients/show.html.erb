@@ -34,9 +34,6 @@
             <p>Diet Type: <%= facade.meal_plan.diet_type %></p>
           </div>
           <div class="row">
-            <p>Diet Type: <%= facade.meal_plan.diet_type %></p>
-          </div>
-          <div class="row">
             <p>Excluded: <%= facade.meal_plan.excluded %></p>
           </div>
           <div class="row">
@@ -48,12 +45,24 @@
     </div>
     <br>
     <div class="row">
-      <div class="col">
-        <%= button_to "Send Message to Client", trainer_client_messages_new_path(facade.client.id), method: :get, class: "btn btn-large btn-primary" if facade.client.phone_num? %>
-      </div>
-      <div class="col">
-        <%= link_to "Send Email to Client", trainer_mailers_new_path(facade.client.id), class: "btn btn-large btn-primary" %>
-      </div>
+      <% if !facade.client.phone_num.nil?  %>
+        <div class="col">
+          <%= link_to "Send Text to Client", trainer_client_messages_new_path(facade.client.id), class: "btn btn-large btn-primary" %>
+        </div>
+      <% else %>
+        <div class="col">
+          <%= link_to "Send Text to Client", nil, class: "btn btn-large btn-secondary disabled" %>
+        </div>
+      <% end %>
+      <% if !facade.client.email.nil? %>
+        <div class="col">
+          <%= link_to "Send Email to Client", trainer_mailers_new_path(facade.client.id), class: "btn btn-large btn-primary" %>
+        </div>
+      <% else %>
+        <div class="col">
+          <%= link_to "Send Email to Client", nil, class: "btn btn-large btn-secondary disabled" %>
+        </div>
+      <% end %>
     </div>
     <br>
       <%= button_to "Back To Trainer's Client List", trainer_dashboard_path, method: :get, class: "btn btn-large btn-primary" %>
