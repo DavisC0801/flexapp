@@ -8,6 +8,10 @@ It is designed to have separate functionality for clients and trainers, and has 
 
 This application was built using Rails 5, Bootstrap, PostgreSQL, TravisCI, OAuth and RSpec. The microservice is created using Python 3 and Flask, as well as the Nutritionix and Edamam API's. Communication features are implemented through Twilio and Sendgrid.
 
+## Hosted Version
+
+A live version of this application can be accessed via https://caloriecoach.herokuapp.com. If you would like to run your own local version, follow the instructions that follow.
+
 ## Local Setup
 
 Clone down the repo
